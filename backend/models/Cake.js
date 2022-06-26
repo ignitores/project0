@@ -33,8 +33,13 @@ let cakeSchema = new Schema(
         tags: {
             type: Array,
             default: [],
+        },
+        createdAt: {
+            type: Date,
+            default: new Date()
         }
-    }
+    },
+    { timestamps: true }
 );
 
 let Cakes = mongoose.model("cakes", cakeSchema);
