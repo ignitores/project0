@@ -59,5 +59,26 @@ const deleteCake = async(req,res) => {
     }
 }
 
+const cakesByFlavour = async(req,res) => {
+    try {
+        const cakebyflavour = await Cakes.find({'flavour': req.params.flavour});
+        //console.log("running");
+        if (cakebyflavour.length==0) {
+            return res.status(400).json({
+                status: 400,
+                message: "cake not found"
+            })
+        }
+        res.status(200).json({
+            status: 200,
+            message: "all cakes by flavour",
+            data: cakebyflavour
+        })
+    } catch(err){
+        //console.log("error");
+        return res.status(400).json(err);
+    }
+}
 
-module.exports = { newCake, updateCake,deleteCake };
+
+module.exports = { newCake, updateCake,deleteCake,cakesByFlavour };

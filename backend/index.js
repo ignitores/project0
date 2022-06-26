@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const config = require('./config');
 const cakeRoutes = require('./routes/cake');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -25,8 +25,8 @@ mongoose.connect(dbUrl, options, () => {
 });
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use('/cake', cakeRoutes);
 
