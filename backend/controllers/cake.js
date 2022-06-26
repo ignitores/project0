@@ -36,5 +36,28 @@ const updateCake = async (req, res) => {
     }
 }
 
+const deleteCake = async(req,res) => {
+    try {
+        const deletecake = await Cakes.findByIdAndDelete(req.params.id);
+        // console.log("Running");
 
-module.exports = { newCake, updateCake };
+        if(deletecake == null) {
+            return res.status(400).json({
+                status: 400,
+                message: "Cake does not exist"
+            })
+        }
+        
+        res.status(200).json({
+            status: 200,
+            message: "Cake information deleted successfully",
+            data: deletecake
+        })
+		}
+    catch(err) {
+        return res.status(400).json(err);
+    }
+}
+
+
+module.exports = { newCake, updateCake,deleteCake };
