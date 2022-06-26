@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 let Schema = mongoose.Schema;
 
@@ -10,15 +10,33 @@ let cakeSchema = new Schema(
         description: {
             type: String,
         },
-        price: {
-            type: Number,
+        sizeAndPrice: {
+            type: Object,
+            default: {}
         },
-        category: {
+        flavour: {
             type: String,
         },
+        images: {
+            type: Array,
+            default: [],
+        },
+        totalOrders: {
+            type: Number,
+        },
+        totalNoOfReviews: {
+            type: Number
+        },
+        sumOfReviews: {
+            type: Number,
+        },
+        tags: {
+            type: Array,
+            default: [],
+        }
     }
 );
 
-export let Cakes = mongoose.model("cakes",cakeSchema);
+let Cakes = mongoose.model("cakes", cakeSchema);
 
-// module.exports = Cakes;
+module.exports = Cakes;

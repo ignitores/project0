@@ -1,25 +1,8 @@
-import express from "express";
-import {Cakes} from "../models/Cake.js";
-// temporary function 1 (for test)
-export const testFunction1 = async (req, res) => {
-    try {
-        res.status(200).send("Working Fine Welcome ignitores Testing Function 1");
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
+const Cakes = require('../models/Cake');
 
-// temporary function 2 (for test)
-export const testFunction2 = async (req, res) => {
+// add new cake
+const newCake = async (req, res) => {
     try {
-        res.status(200).send("Working Fine Welcome ignitores Testing Function 2");
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
-
-export const newCake = async (req,res) => {
-    try{
         let cake = new Cakes(req.body);
         cake = await cake.save();
         res.status(200).json({
@@ -28,8 +11,30 @@ export const newCake = async (req,res) => {
         });
     } catch (err) {
         res.status(400).json({
-          status: 400,
-          message: err.message,
+            status: 400,
+            message: err.message,
         });
     }
 }
+
+// update cake information by id
+const updateCake = async (req, res) => {
+    try {
+        await Cakes.findByIdAndUpdate(req.params.id, {
+            $set: req.body,
+        });
+        let updatedCake = await Cakes.findById(req.params.id);
+
+        res.status(200).json({
+            status: 200,
+            message: "Cake information updated successfully",
+            data: updatedCake
+        })
+
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+}
+
+
+module.exports = { newCake, updateCake };
