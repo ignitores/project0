@@ -69,7 +69,7 @@ const deleteCake = async (req, res) => {
 const cakesByFlavour = async (req, res) => {
     try {
         const cakebyflavour = await Cakes.find({ 'flavour': req.params.flavour });
-        //console.log("running");
+
         if (cakebyflavour.length == 0) {
             return res.status(400).json({
                 status: 400,
@@ -82,7 +82,7 @@ const cakesByFlavour = async (req, res) => {
             data: cakebyflavour
         })
     } catch (err) {
-        //console.log("error");
+      
         return res.status(400).json(err);
     }
 }
@@ -109,4 +109,27 @@ const sortByOrders = async (req, res) => {
 }
 
 
-module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders };
+// get all cake info by Tags
+const cakesByTags = async (req, res) => {
+    try {
+        const cakebytags = await Cakes.find({ 'tags': req.params.tags });
+       
+        if (cakebytags.length == 0) {
+            return res.status(400).json({
+                status: 400,
+                message: "Cakes not found"
+            })
+        }
+        res.status(200).json({
+            status: 200,
+            message: "All cakes by Tags",
+            data: cakebytags
+        })
+    } catch (err) {
+  
+        return res.status(400).json(err);
+    }
+}
+
+
+module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders ,cakesByTags};
