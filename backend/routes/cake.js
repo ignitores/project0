@@ -8,7 +8,7 @@ router.post('/newcake', newCake);
 // Update cake information by id -->> http://localhost:8000/cake/updateCake/id
 router.put('/updateCake/:id', updateCake);
 
-// Delte cake information by id -->> http://localhost:8000/cake/deleteCake/id
+// Delete cake information by id -->> http://localhost:8000/cake/deleteCake/id
 router.delete('/deleteCake/:id', deleteCake);
 
 // get all cake info by flavour -->> http://localhost:8000/cake/cakesByFlavour/flavour

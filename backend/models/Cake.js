@@ -8,14 +8,16 @@ let cakeSchema = new Schema(
             type: String,
         },
         description: {
-            type: String,
+            type: Object,
+			default:{}
         },
         sizeAndPrice: {
             type: Object,
             default: {}
         },
         flavour: {
-            type: String,
+            type: Array,
+			default: []
         },
         images: {
             type: Array,
