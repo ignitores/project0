@@ -7,3 +7,7 @@
 // Update cake information by id -->> http://localhost:8000/cake/updateCake/id
 
 // NEW cake -->> http://localhost:8000/cake/newcake
+
+// get all cake info by tags -->> http://localhost:8000/cake/cakesByTags/tags
+
+// get cake info by ID -->> http://localhost:8000/cake/cakeByID/id

@@ -132,4 +132,27 @@ const cakesByTags = async (req, res) => {
 }
 
 
-module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders ,cakesByTags};
+// get cake info by ID
+const cakeByID = async (req, res) => {
+    try {
+        const cakebyID= await Cakes.findById(req.params.id);
+
+        if (cakebyID.length == 0) {
+            return res.status(400).json({
+                status: 400,
+                message: "cake not found"
+            })
+        }
+        res.status(200).json({
+            status: 200,
+            message: "Cake by ID",
+            data: cakebyID
+        })
+    } catch (err) {
+      
+        return res.status(400).json(err);
+    }
+}
+
+
+module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders ,cakesByTags,cakeByID};
