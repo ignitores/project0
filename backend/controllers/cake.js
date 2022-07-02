@@ -173,4 +173,20 @@ const mostReviewed = async (req, res) => {
     }
 }
 
-module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders, cakesByTags, cakeByID, allCake, mostReviewed };
+//get most Recent cakes
+const recentness = async (req, res) => {
+    try {
+        let recentness = await Cakes.find({})
+        recentness.sort((p1, p2) => {
+            return (p2.createdAt - p1.createdAt);
+        })
+        res.status(200).json(recentness)
+
+    } catch (error) {
+        return res.status(400).json({
+            status: 400,
+            message: error.message,
+        });
+    }
+}
+module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders, cakesByTags, cakeByID, allCake, mostReviewed, recentness };
