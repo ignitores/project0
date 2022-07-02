@@ -1,9 +1,9 @@
 import React from 'react'
 import './home.css'
 import { useState, useEffect } from 'react'
+import  Navbar from '../../components/navbar/Navbar'
 
 import CardSection from '../../components/cardsection/CardSection'
-
 const Home = () => {
     const [value, setValue] = useState([])
 
@@ -23,8 +23,9 @@ const Home = () => {
     }
     else {
         return (
-
+          
             <>
+                <Navbar/>
                 <CardSection title="Popular Cakes" dat={value} />
 
             </>
