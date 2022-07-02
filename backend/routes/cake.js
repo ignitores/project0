@@ -1,5 +1,5 @@
 const express = require('express');
-const { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders,cakesByTags,cakeByID } = require('../controllers/cake');
+const { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders,cakesByTags,cakeByID, allCake } = require('../controllers/cake');
 const router = express.Router();
 
 // NEW cake -->> http://localhost:8000/cake/newcake
@@ -22,6 +22,9 @@ router.get('/cakesByTags/:tags', cakesByTags)
 
 // get cake info by ID -->> http://localhost:8000/cake/cakeByID/id
 router.get('/cakeByID/:id', cakeByID)
+
+// get all cakes -->> http://localhost:8000/cake/allcakes
+router.get('/allcakes',allCake)
 
 // export default router;
 module.exports = router;

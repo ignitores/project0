@@ -11,3 +11,5 @@
 // get all cake info by tags -->> http://localhost:8000/cake/cakesByTags/tags
 
 // get cake info by ID -->> http://localhost:8000/cake/cakeByID/id
+
+//get all cakes -->> http://localhost:8000/cake/allcakes 
