@@ -156,4 +156,21 @@ const allCake = async (req, res) => {
     }
 }
 
-module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders, cakesByTags, cakeByID, allCake };
+//get most mostReviewed cakes
+const mostReviewed = async (req, res) => {
+    try {
+        let mostReviewed = await Cakes.find({})
+        mostReviewed.sort((p1, p2) => {
+            return (p2.totalNoOfReviews - p1.totalNoOfReviews);
+        })
+        res.status(200).json(mostReviewed)
+
+    } catch (error) {
+        return res.status(400).json({
+            status: 400,
+            message: error.message,
+        });
+    }
+}
+
+module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders, cakesByTags, cakeByID, allCake, mostReviewed };
