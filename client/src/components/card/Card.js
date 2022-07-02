@@ -5,7 +5,7 @@ const Card = (props) => {
     // console.log(props);
     return (
         <>
-            <div className="card">
+            <div className="card_gallery">
                 <div className="imgContainer">
                     <img
                         className="cardImg"
@@ -14,7 +14,7 @@ const Card = (props) => {
                     />
                 </div>
                 <div className="lowerContainer">
-                    <p className="cardName">{props.name}</p>
+                    <p className="cardName">{props.name}</p><hr></hr>
                     <p className="cardPrice">{props.price}</p>
                     <p className="cardDescription">{props.description}</p>
                     <div className="reivewAndBtn">

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import CardSection from '../../components/cardsection/CardSection'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Category from '../../components/category/Category';
 
 
 import { axiosInstance } from '../../config'
@@ -61,6 +62,7 @@ const Home = () => {
 
             <>
                 <Navbar />
+                <Category/>
                 <CardSection title="Popular Cakes" dat={value.cakeByOrder.slice(0, 4)} />
                 <CardSection title="Most Reviewed" dat={value.cakeByReviews.slice(0, 4)} />
                 <CardSection title="All Cakes" dat={value.allCakes} />
