@@ -8,7 +8,7 @@ const Home = () => {
     const [value, setValue] = useState([])
 
     useEffect(() => {
-        const cleanup = fetch("/cake/allcake")
+        const cleanup = fetch("/cake/allcakes")
             .then(res => res.json())
             .then(value => setValue(value))
         return () => cleanup;
