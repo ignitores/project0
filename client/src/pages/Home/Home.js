@@ -3,9 +3,12 @@ import './home.css'
 import { useState, useEffect } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import CardSection from '../../components/cardsection/CardSection'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 
 import { axiosInstance } from '../../config'
 import axios from 'axios'
+import { ThreeDots } from 'react-loader-spinner'
 
 const Home = () => {
     const [value, setValue] = useState(
@@ -46,9 +49,10 @@ const Home = () => {
 
 
     if (value.allCakes?.length === undefined) {
+        const style={ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
         return (
-            <div>
-                <h1>Loading</h1>
+            <div style={style}>
+                <ThreeDots color="#00BFFF" height={80} width={80} />
             </div>
         )
     }
@@ -57,6 +61,8 @@ const Home = () => {
 
             <>
                 <Navbar />
+                <CardSection title="Popular Cakes" dat={value.cakeByOrder.slice(0, 4)} />
+                <CardSection title="Most Reviewed" dat={value.cakeByReviews.slice(0, 4)} />
                 <CardSection title="All Cakes" dat={value.allCakes} />
 
             </>
