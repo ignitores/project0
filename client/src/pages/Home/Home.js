@@ -1,20 +1,51 @@
 import React from 'react'
 import './home.css'
 import { useState, useEffect } from 'react'
-import  Navbar from '../../components/navbar/Navbar'
-
+import Navbar from '../../components/navbar/Navbar'
 import CardSection from '../../components/cardsection/CardSection'
+
+import { axiosInstance } from '../../config'
+import axios from 'axios'
+
 const Home = () => {
-    const [value, setValue] = useState([])
+    const [value, setValue] = useState(
+        {
+            allCakes: null,
+            cakesByOrder: null,
+            cakeByReviews: null
+        }
+    );
+
+    const fetchData = () => {
+        const req1 = axiosInstance.get("/cake/allcakes");
+        const req2 = axiosInstance.get("/cake/cakeByOrder");
+        const req3 = axiosInstance.get("/cake/mostReviewed");
+
+        axios.all([req1, req2, req3]).then(
+            axios.spread((...response) => {
+                const allCakeData = response[0].data
+                const cakeByOrderData = response[1].data
+                const cakeByReviewData = response[2].data
+
+                // set data of cakes
+                setValue(
+                    {
+                        allCakes: allCakeData,
+                        cakeByOrder: cakeByOrderData,
+                        cakeByReviews: cakeByReviewData
+                    }
+                );
+            })
+        )
+    }
 
     useEffect(() => {
-        const cleanup = fetch("/cake/allcakes")
-            .then(res => res.json())
-            .then(value => setValue(value))
-        return () => cleanup;
-    }, []);
+        fetchData()
+    }, [])
+    // console.log(value); 
 
-    if (value.length === 0) {
+
+    if (value.allCakes?.length === undefined) {
         return (
             <div>
                 <h1>Loading</h1>
@@ -23,10 +54,10 @@ const Home = () => {
     }
     else {
         return (
-          
+
             <>
-                <Navbar/>
-                <CardSection title="Popular Cakes" dat={value} />
+                <Navbar />
+                <CardSection title="All Cakes" dat={value.allCakes} />
 
             </>
         )
