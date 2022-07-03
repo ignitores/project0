@@ -9,17 +9,18 @@ const Navbar = () => {
   return (
     <div className="Navbar">
       <div className="nav-logo">
-     <img src="./img/re.jpg" alt="" className="logo"/></div>
+     {/* <img src="./img/re.jpg" className="logo"/> */}
+     <div class="logo" href="#">
 
-      <div className="search-input">
+     </div>
+     </div>
+
+      <div className="search">
         <a href="#" target="_blank" hidden> </a>
         <label>
-        <input type="checkbox"/>
+       
         <input type="text"  placeholder="search here..."/>
         </label>
-       {/* <a>
-        <FiSearch/>
-  </a>*/}
      
       </div>
      
