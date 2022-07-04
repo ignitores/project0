@@ -10,6 +10,7 @@ import Category from '../../components/category/Category';
 import { axiosInstance } from '../../config'
 import axios from 'axios'
 import { ThreeDots } from 'react-loader-spinner'
+import { FaArrowCircleUp } from "react-icons/fa";
 
 const Home = () => {
     const [value, setValue] = useState(
@@ -48,9 +49,15 @@ const Home = () => {
     }, [])
     // console.log(value); 
 
+    const scrollToTop = () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+
 
     if (value.allCakes?.length === undefined) {
-        const style={ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
+        const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
         return (
             <div style={style}>
                 <ThreeDots color="#00BFFF" height={80} width={80} />
@@ -62,7 +69,8 @@ const Home = () => {
 
             <>
                 <Navbar />
-                <Category/>
+                <Category />
+                <FaArrowCircleUp className="scrollTop" id="scrollTop" onClick={scrollToTop} />
                 <CardSection title="Popular Cakes" dat={value.cakeByOrder.slice(0, 4)} />
                 <CardSection title="Most Reviewed" dat={value.cakeByReviews.slice(0, 4)} />
                 <CardSection title="All Cakes" dat={value.allCakes} />

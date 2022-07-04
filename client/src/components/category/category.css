@@ -141,11 +141,13 @@ body {
 }
 
 .page-content {
+  /* border:2px solid red; */
   display: grid;
   grid-gap: 1rem;
   padding: 1rem;
   max-width: 1024px;
   margin: 0 auto;
+  margin-top: 8rem;
   font-family: var(--font-sans);
 }
 @media (min-width: 600px) {

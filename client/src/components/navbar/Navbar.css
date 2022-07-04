@@ -4,11 +4,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background: white; */
+  background: white;
   box-shadow: 15px ;
   width: 100%;
   z-index: 10;
   box-shadow: rgba(50,50,93,0.25) 0px 50px 100px -20px,rgba(0,0,0,0.3) 0px 30px 60px -30px; 
+  position: fixed;
+  top: 0;
+  left: 0;
   
 }
 
