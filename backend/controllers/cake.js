@@ -6,8 +6,7 @@ const newCake = async (req, res) => {
         let cake = new Cakes(req.body);
         cake = await cake.save();
         res.status(200).json({
-            status: 200,
-            data: cake,
+            message: "New cake added successfully"
         });
     } catch (err) {
         res.status(400).json({
@@ -20,20 +19,19 @@ const newCake = async (req, res) => {
 // update cake information by id
 const updateCake = async (req, res) => {
     try {
-        await Cakes.findByIdAndUpdate(req.params.id, {
+
+        let cake = await Cakes.findByIdAndUpdate(req.params.id, {
             $set: req.body,
         });
         if (cake == null) {
-            return res.status(400).json({
-                status: 400,
+            return res.status(404).json({
+                status: 404,
                 message: "Cake does not exist"
             })
         }
         let updatedCake = await Cakes.findById(req.params.id);
         res.status(200).json({
-            status: 200,
-            message: "Cake information updated successfully",
-            data: updatedCake
+            message: "Cake information updated successfully"
         })
 
     } catch (error) {
@@ -55,9 +53,7 @@ const deleteCake = async (req, res) => {
         }
 
         res.status(200).json({
-            status: 200,
             message: "Cake information deleted successfully",
-            data: deletecake
         })
     }
     catch (err) {
@@ -71,18 +67,15 @@ const cakesByFlavour = async (req, res) => {
         const cakebyflavour = await Cakes.find({ 'flavour': req.params.flavour });
 
         if (cakebyflavour.length == 0) {
-            return res.status(400).json({
-                status: 400,
+            return res.status(404).json({
+                status: 404,
                 message: "cake not found"
             })
         }
-        res.status(200).json({
-            status: 200,
-            message: "all cakes by flavour",
-            data: cakebyflavour
-        })
+        res.status(200).json(cakebyflavour)
+
     } catch (err) {
-      
+
         return res.status(400).json(err);
     }
 }
@@ -95,11 +88,8 @@ const sortByOrders = async (req, res) => {
         sortByOrder.sort((p1, p2) => {
             return (p2.totalOrders - p1.totalOrders);
         })
-        res.status(200).json({
-            status: 200,
-            message: "Cake information by orders (most to least orders)",
-            data: sortByOrder
-        })
+        res.status(200).json(sortByOrder)
+
     } catch (error) {
         return res.status(400).json({
             status: 400,
@@ -113,20 +103,17 @@ const sortByOrders = async (req, res) => {
 const cakesByTags = async (req, res) => {
     try {
         const cakebytags = await Cakes.find({ 'tags': req.params.tags });
-       
+
         if (cakebytags.length == 0) {
-            return res.status(400).json({
-                status: 400,
+            return res.status(404).json({
+                status: 404,
                 message: "Cakes not found"
             })
         }
-        res.status(200).json({
-            status: 200,
-            message: "All cakes by Tags",
-            data: cakebytags
-        })
+        res.status(200).json(cakebytags)
+
     } catch (err) {
-  
+
         return res.status(400).json(err);
     }
 }
@@ -135,24 +122,120 @@ const cakesByTags = async (req, res) => {
 // get cake info by ID
 const cakeByID = async (req, res) => {
     try {
-        const cakebyID= await Cakes.findById(req.params.id);
+        const cakebyID = await Cakes.findById(req.params.id);
 
         if (cakebyID.length == 0) {
-            return res.status(400).json({
-                status: 400,
+            return res.status(404).json({
+                status: 404,
                 message: "cake not found"
             })
         }
-        res.status(200).json({
-            status: 200,
-            message: "Cake by ID",
-            data: cakebyID
-        })
+        res.status(200).json(cakebyID)
+
     } catch (err) {
-      
+
         return res.status(400).json(err);
     }
 }
 
+//get all cake info
+const allCake = async (req, res) => {
+    try {
+        const allcake = await Cakes.find();
 
-module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders ,cakesByTags,cakeByID};
+        if (allcake.length == 0) {
+            return res.status(404).json({
+                status: 404,
+                message: "Database is empty"
+            })
+        }
+
+        res.status(200).json(allcake);
+
+    } catch (err) {
+        return res.status(400).json(err);
+    }
+}
+
+//get most mostReviewed cakes
+const mostReviewed = async (req, res) => {
+    try {
+        let mostReviewed = await Cakes.find({})
+        mostReviewed.sort((p1, p2) => {
+            return (p2.totalNoOfReviews - p1.totalNoOfReviews);
+        })
+        res.status(200).json(mostReviewed)
+
+    } catch (error) {
+        return res.status(400).json({
+            status: 400,
+            message: error.message,
+        });
+    }
+}
+
+//get most Recent cakes
+const recentness = async (req, res) => {
+    try {
+        let recentness = await Cakes.find({})
+        recentness.sort((p1, p2) => {
+            return (p2.createdAt - p1.createdAt);
+        })
+        res.status(200).json(recentness)
+
+    } catch (error) {
+        return res.status(400).json({
+            status: 400,
+            message: error.message,
+        });
+    }
+}
+
+//get all info by tags and in sorted order(by rating)
+const cakesByTags_SortedByReviews = async (req, res) => {
+    try {
+        const cakebytags_by_reviews = await Cakes.find({ 'tags': req.params.tags });
+        
+        if (cakebytags_by_reviews.length == 0) {
+            return res.status(404).json({
+                status: 404,
+                message: "Cakes not found"
+            })
+        }
+
+        cakebytags_by_reviews.sort((p1,p2) =>{
+            return ((p2.sumOfReviews/p2.totalNoOfReviews) - (p1.sumOfReviews/p1.totalNoOfReviews))
+        })
+
+        res.status(200).json(cakebytags_by_reviews)
+    } catch (err) {
+
+        return res.status(400).json(err);
+    }
+}
+
+//get all cake info by flavour and sorted by price(asc to desc)
+const cakesByFlavour_SortedByPrice = async (req, res) => {
+    try {
+        const cakebyflavour_sortedbyprice = await Cakes.find({ 'flavour': req.params.flavour });
+
+        if (cakebyflavour_sortedbyprice.length == 0) {
+            return res.status(404).json({
+                status: 404,
+                message: "cake not found"
+            })
+        }
+
+        cakebyflavour_sortedbyprice.sort((p1,p2) =>{
+            return (Object.values(p1.sizeAndPrice)[0] - Object.values(p2.sizeAndPrice)[0])
+        })
+
+        res.status(200).json(cakebyflavour_sortedbyprice)
+
+    } catch (err) {
+
+        return res.status(400).json(err);
+    }
+}
+
+module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders, cakesByTags, cakeByID, allCake, mostReviewed, recentness,cakesByTags_SortedByReviews,cakesByFlavour_SortedByPrice };
