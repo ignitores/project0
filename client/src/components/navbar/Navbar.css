@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background:white;
   box-shadow: 15px ;
   width: 100%;
   z-index: 10;
@@ -23,12 +23,42 @@
 
 .Navbar>.nav-logo>.logo{
   background-image:url("./img/re.jpg"); 
-  width:200px;
-  height:100px;
-  background-repeat: no-repeat;
+  width:214px;
+  height:102px;
+  background-repeat:nome;
   background-size: cover;
   padding: 1% 1% 1% 1%;
 }
+.Navbar>.search>.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background:whitesmoke;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: black;
+  box-shadow: rgba(50,50,93,0.25) 0px 50px 100px -20px,rgba(0,0,0,0.3) 0px 30px 60px -30px; 
+  
+}
+
+
+input {
+  margin: 0 0.5rem 0 0.5rem;
+  width: 100%;
+  border:none;
+  outline: none;
+  color: black;
+  font-size:medium;
+  
+}
+::placeholder {
+  color: #000;
+  font-size:medium;
+  background: whitesmoke;
+  
+}
+
+
 
 .Navbar > .nav-items > a {
   /* border:2px solid red; */
@@ -88,59 +118,8 @@
     /* position: absolute; */
     /*z-index: 10;*/
   }
-  
-  .Navbar>.search-input{
-    background: #ffff;
-    height:80%;
-    border-radius: 10px;
-    position:relative;
-    width:60%;
-    margin-left: 1rem;
-    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
-  }
-  .search-input{
-    height:100px;
-    width:30%;
-    outline:none;
-    border:none;
-    border-radius:10px;
-    padding: 0 70px 0 90px;
-    font-size: 22px;
-    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
-    box-sizing:border-box;
-  
-  }
-  input::-webkit-input-placeholder{
-    font-size: 20px;
-    line-height: 3;
-    height: 300px;
-    padding: auto;
-    width: auto;
-  }
-  
-  
-  .search-input.active{
-    border-radius: 10px 3px 0 0;
-    opacity: 1;
-    pointer-events: auto;
-  }
+ 
 
-  .Navbar>.auto-box:hover{
-    background:#efefef;
-  }
-  .search-input>.icon{
-    position:absolute;
-    right:0;
-    top:0px;
-    height:55px;
-    width:55px;
-    text-align: center;
-    line-height: 55px;
-    font-size: 20px;
-    color:#111;
-     cursor: pointer;
-
-  }
   .Navbar > .nav-items > a::before {
       background: transparent;
   }
@@ -185,11 +164,13 @@
   .nav-toggle > .bar::after {
     width: 32px;
     transform: translateY(8px);
+    
   }
 
   .nav-toggle.open > .bar {
       transform: translateX(-40px);
-      background: transparent;
+      background:transparent ;
+      
   }
 
   .nav-toggle.open > .bar::before {

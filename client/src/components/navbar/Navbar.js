@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import logo from './img/re.jpg';
 import { FaShoppingCart,FaUserAlt } from 'react-icons/fa';
+//import TextField from "@mui/material/TextField";
 //import { FiSearch} from 'react-icons/fi';
 
 const Navbar = () => {
@@ -14,15 +15,13 @@ const Navbar = () => {
 
      </div>
      </div>
-
-      <div className="search">
-        <a href="#" target="_blank" hidden> </a>
-        <label>
-       
-        <input type="text"  placeholder="search here..."/>
-        </label>
-     
-      </div>
+     <div className="search">
+     <div className="input-wrapper">
+    <div class="fa fa-search"></div>
+    <input type="text" placeholder="Search" />
+     <div className="fa fa-times"></div>
+    </div>
+    </div>
      
       <div className={`nav-items ${isOpen && "open"}`}>
         <a href="/home">Home</a>
