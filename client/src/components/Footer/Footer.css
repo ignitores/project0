@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+h1{
+	text-align: center;
+	color: blue;
+}
+.footer{
+	background:#f17eb8;
+	height:40vh;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	
+}
+.footer > a{
+	height:100px;
+	width:100px;
+	background-color: #f5f6fa;
+	border-radius:50px;
+	text-align:center;
+	margin:10px;
+	line-height: 110px;
+	box-shadow:1px 4px 2px 2px #dcdde1;
+}
+.footer>a:hover{
+	transform:scale(1.2);
+}
+.fa-instagram{
+	color:#e84393;
+}
+.fa-youtube{
+	color:#e84118;
+}
+.fa-linkedin{
+	color:#0097e6;
+}
+.fa-twitter{
+	color:#0097e6;
+}
+@media (max-width:500px) {
+	.footer{
+		display:flex;
+		margin:0;
+		padding:0;
+	}
+
+	
+	
+}
