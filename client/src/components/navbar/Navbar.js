@@ -15,6 +15,12 @@ const Navbar = () => {
      </div>
      </div>
 
+      <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search your cake here.."/>
+        {/* <a href="#"><img class="search-icon"/></a> */}
+      </div>
+
+{/*       
       <div className="search">
         <a href="#" target="_blank" hidden> </a>
         <label>
@@ -22,7 +28,7 @@ const Navbar = () => {
         <input type="text"  placeholder="search here..."/>
         </label>
      
-      </div>
+      </div> */}
      
       <div className={`nav-items ${isOpen && "open"}`}>
         <a href="/home">Home</a>
