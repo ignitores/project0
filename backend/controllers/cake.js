@@ -138,6 +138,7 @@ const cakeByID = async (req, res) => {
     }
 }
 
+//get all cake info
 const allCake = async (req, res) => {
     try {
         const allcake = await Cakes.find();
@@ -189,4 +190,52 @@ const recentness = async (req, res) => {
         });
     }
 }
-module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders, cakesByTags, cakeByID, allCake, mostReviewed, recentness };
+
+//get all info by tags and in sorted order(by rating)
+const cakesByTags_SortedByReviews = async (req, res) => {
+    try {
+        const cakebytags_by_reviews = await Cakes.find({ 'tags': req.params.tags });
+        
+        if (cakebytags_by_reviews.length == 0) {
+            return res.status(404).json({
+                status: 404,
+                message: "Cakes not found"
+            })
+        }
+
+        cakebytags_by_reviews.sort((p1,p2) =>{
+            return ((p2.sumOfReviews/p2.totalNoOfReviews) - (p1.sumOfReviews/p1.totalNoOfReviews))
+        })
+
+        res.status(200).json(cakebytags_by_reviews)
+    } catch (err) {
+
+        return res.status(400).json(err);
+    }
+}
+
+//get all cake info by flavour and sorted by price(asc to desc)
+const cakesByFlavour_SortedByPrice = async (req, res) => {
+    try {
+        const cakebyflavour_sortedbyprice = await Cakes.find({ 'flavour': req.params.flavour });
+
+        if (cakebyflavour_sortedbyprice.length == 0) {
+            return res.status(404).json({
+                status: 404,
+                message: "cake not found"
+            })
+        }
+
+        cakebyflavour_sortedbyprice.sort((p1,p2) =>{
+            return (Object.values(p1.sizeAndPrice)[0] - Object.values(p2.sizeAndPrice)[0])
+        })
+
+        res.status(200).json(cakebyflavour_sortedbyprice)
+
+    } catch (err) {
+
+        return res.status(400).json(err);
+    }
+}
+
+module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders, cakesByTags, cakeByID, allCake, mostReviewed, recentness,cakesByTags_SortedByReviews,cakesByFlavour_SortedByPrice };
