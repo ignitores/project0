@@ -1,5 +1,5 @@
 const express = require('express');
-const { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders,cakesByTags,cakeByID, allCake,mostReviewed,recentness,cakesByTags_SortedByReviews,cakesByFlavour_SortedByPrice} = require('../controllers/cake');
+const { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders,cakesByTags,cakeByID, allCake,mostReviewed,recentness,cakesByTags_SortedByReviews,cakesByTags_SortedByOrders,cakesByFlavour_SortedByPrice} = require('../controllers/cake');
 const router = express.Router();
 
 // NEW cake -->> http://localhost:8000/cake/newcake
@@ -38,6 +38,8 @@ router.get('/cakesByTagsSortedByReviews/:tags',cakesByTags_SortedByReviews)
 //get cakes by flavour also sorted in asc order by price -->> http://localhost:8000/cake/cakesByFlavourSortedByPrice/{flavour}
 router.get('/cakesByFlavourSortedByPrice/:flavour',cakesByFlavour_SortedByPrice)
 
+//get cakes by tag also sorted in most to least ordered -->> http://localhost:8000/cake/cakesByTagsSortedByOrders/{tag}
+router.get('/cakesByTagsSortedByOrders/:tags',cakesByTags_SortedByOrders)
 
 
 // export default router;

@@ -237,5 +237,28 @@ const cakesByFlavour_SortedByPrice = async (req, res) => {
         return res.status(400).json(err);
     }
 }
+//get all cake info by particular tags and sorted by orders(most to least)
+const cakesByTags_SortedByOrders = async (req, res) => {
+    try {
+        const cakesbytags_sortedbyorders = await Cakes.find({ 'tags': req.params.tags });
 
-module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders, cakesByTags, cakeByID, allCake, mostReviewed, recentness,cakesByTags_SortedByReviews,cakesByFlavour_SortedByPrice };
+        if (cakesbytags_sortedbyorders.length == 0) {
+            return res.status(404).json({
+                status: 404,
+                message: "cake not found"
+            })
+        }
+
+        cakesbytags_sortedbyorders.sort((p1,p2) =>{
+            return (p2.totalOrders - p1.totalOrders)
+        })
+
+        res.status(200).json(cakesbytags_sortedbyorders)
+
+    } catch (err) {
+
+        return res.status(400).json(err);
+    }
+}
+
+module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders, cakesByTags, cakeByID, allCake, mostReviewed, recentness,cakesByTags_SortedByReviews,cakesByFlavour_SortedByPrice,cakesByTags_SortedByOrders };
