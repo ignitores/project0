@@ -5,7 +5,9 @@ import "./Footer.css";
 const Footer = () => {
 	return (
 	  <>
-	  <h1>Catch us</h1>	
+	<span className="footer-title">
+	<h1 >Follow Us</h1>	
+	</span>
 	<div className="footer">
   	 <a href="#">
 		<div  className="fa fa-2x fa-facebook"></div>
@@ -25,7 +27,6 @@ const Footer = () => {
   	 		
   	 
   </div>
-
 	  </>
 	);
   };

@@ -146,10 +146,16 @@ body {
   grid-gap: 1rem;
   padding: 1rem;
   max-width: 1024px;
+/* <<<<<<< HEAD */
+  margin: 90px auto;
+  margin: 0 auto;
+  margin-top: 8rem;
+/* =======
   margin: 0 auto;
   margin-top: 8rem;
 
-  font-family: var(--font-sans);
+>>>>>>> 9ae77611d080a8ee8f8d9358c3217e87524786a0
+  font-family: var(--font-sans); */
 }
 @media (min-width: 600px) {
   .page-content {
