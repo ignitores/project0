@@ -14,6 +14,7 @@ import { ThreeDots } from 'react-loader-spinner'
 import { FaArrowCircleUp } from "react-icons/fa";
 
 const Home = () => {
+    const [isVisible, setIsVisible] = useState(false);
     const [value, setValue] = useState(
         {
             allCakes: null,
@@ -55,7 +56,19 @@ const Home = () => {
         document.documentElement.scrollTop = 0;
     }
 
+    useEffect(() => {
+        window.addEventListener("scroll", listenToScroll);
+        return () =>
+            window.removeEventListener("scroll", listenToScroll);
+    }, [])
 
+    const listenToScroll = () => {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            setIsVisible(true);
+        } else {
+            setIsVisible(false);
+        }
+    };
 
     if (value.allCakes?.length === undefined) {
         const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
@@ -71,11 +84,15 @@ const Home = () => {
             <>
                 <Navbar />
                 <Category />
-                <FaArrowCircleUp className="scrollTop" id="scrollTop" onClick={scrollToTop} />
+                {
+                    isVisible
+                    &&
+                    <FaArrowCircleUp className="scrollTop" id="scrollTop" onClick={scrollToTop} />
+                }
                 <CardSection title="Popular Cakes" dat={value.cakeByOrder.slice(0, 4)} />
                 <CardSection title="Most Reviewed" dat={value.cakeByReviews.slice(0, 4)} />
                 <CardSection title="All Cakes" dat={value.allCakes} />
-                <Footer/>
+                <Footer />
 
             </>
         )

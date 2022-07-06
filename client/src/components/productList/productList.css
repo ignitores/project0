@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.productList_container{
+    /* border: 2px solid blue; */
+    /* background: rgb(244, 244, 244,0.5) ; */
+    background:rgb(245, 243, 243);
+    background:rgb(255, 255, 255,0.9);
+    /* background:white; */
+    width:1100px;
+    margin-left: 17rem;
+    margin-top: 2rem;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+
+    
+}
+.productContainer{
+    /* border: 2px solid orange; */
+    width:100%;
+    height: 80vh;
+    margin:1rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.productAttribute{
+    /* border: 2px solid green; */
+    width:100%;
+    display: flex;
+    /* margin-left: 2rem; */
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    align-self: center;
+    justify-content:center;
+
+}
+.productItemList{
+    /* border: 2px solid violet; */
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+.productTitle{
+    font-weight:bold;
+    font-size: 2rem;
+    font-family: "roboto", sans-serif;
+    margin-top: 1rem;
+    color:rgb(255, 84, 4);
+}
+.product_row{
+    /* border: 1px solid grey; */
+    width:100%;
+    display: flex;
+    margin-left: 2.1rem;
+    margin-top: 0.5rem;
+    justify-content:space-between;
+    /* background: white; */
+}
+.update_delete_container{
+    /* border: 2px solid blue; */
+    display:flex;
+    width:150px;
+}
+.items{
+    /* border: 2px solid blue; */
+    width:100%;
+    font-weight:450;
+    font-size: 1.1rem;
+    font-family: "roboto", sans-serif;
+    padding: 10px;
+    display:flex;
+    justify-content:flex-start;
+    align-items: center;
+    /* box-shadow: 0 3px 10px rgb(223, 219, 219); */
+    box-shadow: 0 5px 10px rgba(211, 210, 210,0.6);
+    background:white;
+    margin:0 0.1rem;
+    border-radius: 8px;
+    
+}
+.serialNo{
+    width: 5%;
+}
+.prodId{
+    width:25%;
+    cursor: pointer;
+    transition:all 0.1s ease-in-out;
+}
+.prodName{
+    width: 50%;
+    cursor: pointer;
+    transition:all 0.1s ease-in-out;
+}
+.prodName:hover,.prodId:hover{
+    color: blue;
+    font-size: 1.15rem;
+}
+.prodImg{
+    /* border: 2px solid rgb(187, 187, 187); */
+    width: 5%;
+    height:3.7rem;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    box-shadow: 0 3px 10px rgb(223, 219, 219);
+    background:white;
+    margin:0 0.1rem;
+}
+.productImage{
+    width: 90%;
+    height: 90%;
+    cursor: pointer;
+}
+.edit_delete{
+    width:35%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    border-radius: 50%;
+    margin:0 0.1rem;
+}
+.prod_icons{
+    width:80%;
+    height:80%;
+    cursor: pointer;
+    transition:all 0.1s ease-in-out;
+}
+.prod_icons:hover{
+    width:90%;
+    height:90%;
+}
+.edit_icon:hover{
+    color:blue;
+}
+.delete_icon:hover{
+    color: red;
+}
+.serialNo_attribute,.prodId_attribute,.prodName_attribute,.prodImg_attribure{
+    justify-content:center;
+    font-weight: bold;
+    font-family: "roboto", sans-serif;
+    background:rgb(228, 221, 221);
+    margin: 0 0.1rem;
+}
+.prodImg_attribure{
+    height:100%;
+    margin-right: -0.3rem;
+}
+.update_delete_container_attribute{
+    /* border: 2px solid yellow; */
+    width:12%;
+    /* margin-left: 0.1rem; */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.prodId_attribute{
+    width: 25%;
+}
+.prodName_attribute{
+    width:49%;
+}
+.prod_edit_attribute,.prod_delete_attribute,.prodImg span{
+    font-size: 1rem;
+    font-weight: bold;
+}
+.prod_edit_attribute,.prod_delete_attribute{
+    width:40%;
+    height:100%;
+    justify-content:center;
+    margin:0 0.2rem;
+    background:rgb(228, 221, 221);
+}
+
+.productItemList::-webkit-scrollbar {
+    width: 0.5rem;
+    scroll-behavior: smooth;
+  }
+   
+  .productItemList::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius:30px;
+  }
+   
+  .productItemList::-webkit-scrollbar-thumb {
+    background-color: rgb(38, 142, 228);
+    outline: 1px solid rgb(0, 128, 255);
+    border-radius: 30px;
+  }

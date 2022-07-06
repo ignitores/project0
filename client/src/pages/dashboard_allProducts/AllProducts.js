@@ -1,19 +1,17 @@
 import React from 'react'
-import './dashboard.css'
-
+import './allProduct.css'
+import ProductList from '../../components/productList/ProductList'
 import Sidenav from '../../components/sidenav/Sidenav'
-import DashboardRight from '../../components/dashboard_right/DashboardRight'
 
-const Dashboard = () => {
+const AllProducts = () => {
     return (
         <>
             <div className="dashboard_container">
                 <Sidenav />
-                <DashboardRight />
+                <ProductList />
             </div>
         </>
     )
 }
 
-
-export default Dashboard
+export default AllProducts

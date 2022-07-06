@@ -1,4 +1,4 @@
-body{
+/* body{
 
 	margin:0px;
 	padding: 0px;
@@ -6,6 +6,20 @@ body{
 	background-size: cover;
 	overflow: hidden;
 	font-family: system-ui;
+} */
+.dashboard_container{
+  /* border: 2px solid red; */
+  width:1530px;
+  height:100vh;
+	margin:0px;
+	padding: 0px;
+	background-image: url("background.jpg");
+	background-size: cover;
+	/* overflow: hidden; */
+	font-family: system-ui;
+  display:flex;
+  justify-content:center;
+  align-items: center;
 }
 
 .clearfix{
