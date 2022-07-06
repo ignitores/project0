@@ -209,7 +209,7 @@ input#search-bar{
   font-size: 1rem;
   border-radius: 1px inset grey;
   outline: none;
-  &:focus{
+  /* &:focus{
     border: 1px solid #008ABF;
     transition: 0.35s ease;
     color: #008ABF;
@@ -225,7 +225,7 @@ input#search-bar{
      transition: opacity 0.45s ease; 
   	 opacity: 0;
      }    
-   }
+   } */
  }
 
 /* .search-icon{
