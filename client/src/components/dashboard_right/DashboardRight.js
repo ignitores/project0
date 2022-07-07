@@ -26,7 +26,7 @@ const DashboardRight = () => {
                 </div>
                 <div className="col-div-3">
                     <div className="box">
-                        <p>100<br /><span>Orders (Today)</span></p>
+                        <p>100<br /><span>Orders</span></p>
                         <i className="fa fa-calendar box-icon" />
                     </div>
                 </div>
