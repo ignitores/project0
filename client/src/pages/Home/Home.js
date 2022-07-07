@@ -6,8 +6,7 @@ import CardSection from '../../components/cardsection/CardSection'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Category from '../../components/category/Category';
 import Footer from '../../components/Footer/Footer';
-
-
+import Slider from '../../components/Slider/Slider';
 import { axiosInstance } from '../../config'
 import axios from 'axios'
 import { ThreeDots } from 'react-loader-spinner'
@@ -83,6 +82,7 @@ const Home = () => {
 
             <>
                 <Navbar />
+                <Slider/>
                 <Category />
                 {
                     isVisible

@@ -70,12 +70,14 @@ input {
   position: relative;
   opacity: 0.9;
   margin-right:5rem;
+  background-color: white;
   
 }
 
 .Navbar > .nav-items > a:hover {
   opacity: 1;
   color:"solid orangered";
+  background: white;
 
 }
 
@@ -122,7 +124,7 @@ input {
  
 
   .Navbar > .nav-items > a::before {
-      background: transparent;
+      background:transparent;
   }
 
   .Navbar > .nav-items.open {
@@ -170,7 +172,7 @@ input {
 
   .nav-toggle.open > .bar {
       transform: translateX(-40px);
-      background:transparent ;
+      background:transparent;
       
   }
 
