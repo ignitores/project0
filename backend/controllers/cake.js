@@ -195,7 +195,7 @@ const recentness = async (req, res) => {
 const cakesByTags_SortedByReviews = async (req, res) => {
     try {
         const cakebytags_by_reviews = await Cakes.find({ 'tags': req.params.tags });
-        
+
         if (cakebytags_by_reviews.length == 0) {
             return res.status(404).json({
                 status: 404,
@@ -203,8 +203,8 @@ const cakesByTags_SortedByReviews = async (req, res) => {
             })
         }
 
-        cakebytags_by_reviews.sort((p1,p2) =>{
-            return ((p2.sumOfReviews/p2.totalNoOfReviews) - (p1.sumOfReviews/p1.totalNoOfReviews))
+        cakebytags_by_reviews.sort((p1, p2) => {
+            return ((p2.sumOfReviews / p2.totalNoOfReviews) - (p1.sumOfReviews / p1.totalNoOfReviews))
         })
 
         res.status(200).json(cakebytags_by_reviews)
@@ -226,7 +226,7 @@ const cakesByFlavour_SortedByPrice = async (req, res) => {
             })
         }
 
-        cakebyflavour_sortedbyprice.sort((p1,p2) =>{
+        cakebyflavour_sortedbyprice.sort((p1, p2) => {
             return (Object.values(p1.sizeAndPrice)[0] - Object.values(p2.sizeAndPrice)[0])
         })
 
@@ -249,7 +249,7 @@ const cakesByTags_SortedByOrders = async (req, res) => {
             })
         }
 
-        cakesbytags_sortedbyorders.sort((p1,p2) =>{
+        cakesbytags_sortedbyorders.sort((p1, p2) => {
             return (p2.totalOrders - p1.totalOrders)
         })
 
@@ -261,4 +261,63 @@ const cakesByTags_SortedByOrders = async (req, res) => {
     }
 }
 
-module.exports = { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders, cakesByTags, cakeByID, allCake, mostReviewed, recentness,cakesByTags_SortedByReviews,cakesByFlavour_SortedByPrice,cakesByTags_SortedByOrders };
+// get all cake info by particular flavours and reviews (best to worst reviews)
+const cakeByFlavours_sortedByReviews = async (req, res) => {
+    try {
+        const cakeByFlavours_sortByReviews = await Cakes.find({ 'flavour': req.params.flavour });
+
+        if (cakeByFlavours_sortByReviews == null) {
+            return res.status(404).json({
+                status: 404,
+                message: "Cakes not found"
+            })
+        }
+
+        cakeByFlavours_sortByReviews.sort((p1, p2) => {
+            return ((p2.sumOfReviews / p2.totalNoOfReviews) - (p1.sumOfReviews / p1.totalNoOfReviews));
+        })
+        res.status(200).json(cakeByFlavours_sortByReviews);
+
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+}
+
+// get cake by flavours and orders (most to least ordered)
+const cakeByFlavours_sortByOrders = async (req, res) => {
+    try {
+        const cakeByFlavours_sortByOrders = await Cakes.find({ 'flavour': req.params.flavour });
+
+        if (cakeByFlavours_sortByOrders == null) {
+            return res.status(404).json({
+                status: 404,
+                message: "Cakes not found"
+            })
+        }
+
+        cakeByFlavours_sortByOrders.sort((p1, p2) => {
+            return ((p2.totalOrders) - (p1.totalOrders));
+        })
+        res.status(200).json(cakeByFlavours_sortByOrders);
+
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+}
+
+module.exports = {
+    newCake,
+    updateCake,
+    deleteCake,
+    cakesByFlavour,
+    sortByOrders,
+    cakesByTags,
+    cakeByID,
+    allCake,
+    mostReviewed,
+    recentness, cakesByTags_SortedByReviews,
+    cakesByFlavour_SortedByPrice,
+    cakesByTags_SortedByOrders,
+    cakeByFlavours_sortedByReviews,
+    cakeByFlavours_sortByOrders,
+};

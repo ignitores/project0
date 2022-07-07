@@ -1,5 +1,21 @@
 const express = require('express');
-const { newCake, updateCake, deleteCake, cakesByFlavour, sortByOrders,cakesByTags,cakeByID, allCake,mostReviewed,recentness,cakesByTags_SortedByReviews,cakesByTags_SortedByOrders,cakesByFlavour_SortedByPrice} = require('../controllers/cake');
+const {
+    newCake,
+    updateCake,
+    deleteCake,
+    cakesByFlavour,
+    sortByOrders, cakesByTags,
+    cakeByID,
+    allCake,
+    mostReviewed,
+    recentness,
+    cakesByTags_SortedByReviews,
+    cakesByTags_SortedByOrders,
+    cakesByFlavour_SortedByPrice,
+    cakeByFlavours_sortedByReviews,
+    cakeByFlavours_sortByOrders,
+} = require('../controllers/cake');
+
 const router = express.Router();
 
 // NEW cake -->> http://localhost:8000/cake/newcake
@@ -24,7 +40,7 @@ router.get('/cakesByTags/:tags', cakesByTags)
 router.get('/cakeByID/:id', cakeByID)
 
 // get all cakes -->> http://localhost:8000/cake/allcakes
-router.get('/allcakes',allCake)
+router.get('/allcakes', allCake)
 
 //get cakes by Review -->>  http://localhost:8000/cake/mostReviewed
 router.get('/mostReviewed', mostReviewed)
@@ -33,14 +49,19 @@ router.get('/mostReviewed', mostReviewed)
 router.get('/Recentness', recentness)
 
 //get cakes by tag also sorted in Desc order by rating -->> http://localhost:8000/cake/cakesByTagsSortedByReviews/{tag}
-router.get('/cakesByTagsSortedByReviews/:tags',cakesByTags_SortedByReviews)
+router.get('/cakesByTagsSortedByReviews/:tags', cakesByTags_SortedByReviews)
 
 //get cakes by flavour also sorted in asc order by price -->> http://localhost:8000/cake/cakesByFlavourSortedByPrice/{flavour}
-router.get('/cakesByFlavourSortedByPrice/:flavour',cakesByFlavour_SortedByPrice)
+router.get('/cakesByFlavourSortedByPrice/:flavour', cakesByFlavour_SortedByPrice)
 
 //get cakes by tag also sorted in most to least ordered -->> http://localhost:8000/cake/cakesByTagsSortedByOrders/{tag}
-router.get('/cakesByTagsSortedByOrders/:tags',cakesByTags_SortedByOrders)
+router.get('/cakesByTagsSortedByOrders/:tags', cakesByTags_SortedByOrders)
 
+// get cake by flavours and reviews (best to worst reviews) -->> http://localhost:8000/cake/cakesByFlavoursSortedByReviews/{flavour}
+router.get('/cakesByFlavoursSortedByReviews/:flavour', cakeByFlavours_sortedByReviews);
+
+// get cake by flavours and orders (most to least) -->> http://localhost:8000/cake/cakesByFlavoursSortByOrders/{flavour}
+router.get('/cakesByFlavoursSortByOrders/:flavour', cakeByFlavours_sortByOrders);
 
 // export default router;
 module.exports = router;
