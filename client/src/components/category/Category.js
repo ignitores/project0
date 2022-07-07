@@ -4,7 +4,8 @@ import "./category.css"
 const Category = () => {
     return(
 <>
-
+    
+    <div><h1>Ocassion Based</h1></div>
     <main className ="page-content">
       <div className ="card">
         <div className ="content">
@@ -48,7 +49,7 @@ const Category = () => {
         </div>
       </div>
     </main>
-
+    
 </>
     )
 }
