@@ -1,0 +1,41 @@
+.addCake_container{
+    border: 2px solid red;
+    width: 1200px;
+    height:95vh;
+    margin-left:18rem;
+}
+.input{
+    border: 2px solid blue;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.cake_label{
+    margin-left: 1rem;
+}
+.cake_input{
+    border: 1px solid black;
+    width:20%;
+    padding:0.5rem
+}
+.addBtn,.desc_done_btn{
+    width: 10%;
+    margin-left: 1rem;
+}
+.description_container{
+    /* border: 2px solid oranage; */
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.desc_inputs{
+    /* border: 2px solid green; */
+    width: 98%;
+    display:flex;
+    margin: 1rem;
+}
+#fields{
+    /* border: 2px solid yellow; */
+    width:100%;
+}
