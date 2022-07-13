@@ -6,10 +6,11 @@ let cakeSchema = new Schema(
     {
         name: {
             type: String,
+            default: ""
         },
         description: {
             type: Object,
-			default:{}
+            default: {}
         },
         sizeAndPrice: {
             type: Object,
@@ -17,7 +18,7 @@ let cakeSchema = new Schema(
         },
         flavour: {
             type: Array,
-			default: []
+            default: []
         },
         images: {
             type: Array,
@@ -25,12 +26,15 @@ let cakeSchema = new Schema(
         },
         totalOrders: {
             type: Number,
+            default: 0
         },
         totalNoOfReviews: {
-            type: Number
+            type: Number,
+            default: 0
         },
         sumOfReviews: {
             type: Number,
+            default: 0
         },
         tags: {
             type: Array,

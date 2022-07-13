@@ -1,33 +1,70 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+.add_cake_title{
+    margin:1rem auto;
+    margin-left:12rem;
+}
 .addCake_container{
-    border: 2px solid red;
+    border: 2px solid black;
     width: 1200px;
-    height:95vh;
+    height:88vh;
+    overflow-y: scroll; 
+    overflow-x: hidden;
     margin-left:18rem;
 }
 .input{
-    border: 2px solid blue;
-    margin: 1rem auto;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin: 1rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 .cake_label{
-    margin-left: 1rem;
+    margin: 1rem;
+    font-weight: bold;
+    font-family: "roboto", sans-serif;
+}
+.cake_title_heading{
+    color: rgb(255, 0, 0);
 }
 .cake_input{
     border: 1px solid black;
     width:20%;
-    padding:0.5rem
+    border-radius: 10px;
+    padding:0.5rem;
+    font-weight:400;
+    font-family: "roboto", sans-serif;
 }
 .addBtn,.desc_done_btn{
-    width: 10%;
-    margin-left: 1rem;
+    /* border: 1px solid black; */
+    width: 8%;
+    height:2rem;
+    margin-left: -65rem;
+    margin-bottom: 0.5rem;
+    border-radius:8px;
+    border:none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background:#0e0ee0;
+    cursor: pointer;
+    color:rgb(241, 235, 235);
+    font-size:1.1rem;
+}
+.addBtn:hover{
+    background:#0000ff;
+    color:white;
+    font-size: 1.2rem;
+}
+.add_icon{
+    margin-left:0.5rem;
 }
 .description_container{
-    /* border: 2px solid oranage; */
+    /* border: 2px solid orange; */
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
+    /* align-items: center; */
 }
 .desc_inputs{
     /* border: 2px solid green; */
@@ -35,7 +72,94 @@
     display:flex;
     margin: 1rem;
 }
-#fields{
+#fields,#sizeAndPrize_fields{
     /* border: 2px solid yellow; */
     width:100%;
 }
+.image_continer{
+    border: 2px solid grey;
+    width:1000px;
+    height: auto;
+    display:flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding:0.5rem 0;
+    margin:0.5rem;
+}
+.image_continer_hide{
+    display:none;
+}
+.progress_bar{
+    width:80%;
+    margin:0.5rem;
+}
+.input_img{
+    margin:0.5rem;
+    margin-left: 5rem;
+}
+.up_img{
+    border: 2px solid black;
+    width:80px;
+    height:80px;
+    margin:0 1rem;
+}
+.shareImgContainer{
+    width:80px;
+    height:80px;
+}
+.submit_btn{
+    width:120px;
+    height:2rem;
+    margin: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: none;
+}
+.submit_btn_active{
+    background: rgb(28, 176, 28);
+    color: rgb(243, 238, 238);
+    transition: all 0.1s ease-in-out;
+}
+.submit_btn_active:hover{
+    background: rgb(16, 219, 16);
+    color: rgb(255, 255, 255);
+    font-size: 1.3rem;
+    
+}
+.submit_btn_hide{
+    display: none;
+}
+.submit_form{
+    width:150px;
+    height:30px;
+    margin:1rem auto;
+    background:rgb(56, 54, 54);
+    color: rgb(237, 226, 226);
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+.submit_form:hover{
+    background:rgb(0, 0, 0); 
+    color:rgb(255, 255, 255); 
+    font-size: 1.3rem;      
+}
+
+.addCake_container::-webkit-scrollbar {
+    width: 0.5rem;
+    scroll-behavior: smooth;
+  }
+   
+  .addCake_container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius:30px;
+  }
+   
+  .addCake_container::-webkit-scrollbar-thumb {
+    background-color: rgb(38, 142, 228);
+    outline: 1px solid rgb(0, 128, 255);
+    border-radius: 30px;
+  }
