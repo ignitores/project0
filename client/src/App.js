@@ -4,6 +4,7 @@ import About from './pages/About/About'
 import Error from './pages/erro404/error'
 import Dashboard from './pages/dashboard/Dashboard'
 import AllProducts from './pages/dashboard_allProducts/AllProducts'
+import AddCake from './pages/addCake/AddCake'
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
         <Route exact path="/dashboard" element={<Dashboard />} />
 
         <Route exact path="/dashboard/allProducts" element={<AllProducts />} />
+
+        <Route exact path="/dashboard/addCake" element={<AddCake />} />
 
         <Route path="*" element={<Error />} />
 

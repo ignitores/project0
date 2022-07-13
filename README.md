@@ -3,7 +3,7 @@
 - #### Add New Cake
 
 ```
-  GET http://localhost:8000/cake/newcake
+  POST http://localhost:8000/cake/newcake
 ```
 
 ---
