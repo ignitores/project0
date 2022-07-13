@@ -304,7 +304,30 @@ const cakeByFlavours_sortByOrders = async (req, res) => {
         return res.status(400).json(error);
     }
 }
+//get all cake by particular tags and sorted by price(low to high) 
+const cakesByTags_SortedByPrice = async (req, res) => {
+    try {
+        const cakebytags_sortedbyprice = await Cakes.find({ 'tags': req.params.tags});
 
+        if (cakebytags_sortedbyprice.length == 0) {
+            return res.status(404).json({
+                status: 404,
+                message: "cake not found"
+            })
+        }
+
+        cakebytags_sortedbyprice.sort((p1, p2) => {
+            return (Object.values(p2.sizeAndPrice)[0] - Object.values(p1.sizeAndPrice)[0])
+        })
+
+        res.status(200).json(cakebytags_sortedbyprice)
+
+    } catch (err) {
+
+        return res.status(400).json(err);
+    }
+}
+        
 module.exports = {
     newCake,
     updateCake,
@@ -320,4 +343,5 @@ module.exports = {
     cakesByTags_SortedByOrders,
     cakeByFlavours_sortedByReviews,
     cakeByFlavours_sortByOrders,
+    cakesByTags_SortedByPrice,
 };
