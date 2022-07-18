@@ -12,13 +12,14 @@ const CardSection = (props) => {
                     {props.dat.map(values => (
 
                         <Card
-                            key={values._id}
                             imgSrc={values.images[0]}
                             name={values.name}
                             price={Object.values(values.sizeAndPrice)[0]}
                             description={Object.values(values.description)}
                             rating={values.sumOfReviews / values.totalNoOfReviews}
+                            id={values._id}
                         />
+
                     ))}
 
                 </div>

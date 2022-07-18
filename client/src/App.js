@@ -6,6 +6,7 @@ import Dashboard from './pages/dashboard/Dashboard'
 import AllProducts from './pages/dashboard_allProducts/AllProducts'
 import AddCake from './pages/addCake/AddCake'
 import { Routes, Route } from 'react-router-dom';
+import Details from './pages/Details/Details';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route exact path="/dashboard/allProducts" element={<AllProducts />} />
 
         <Route exact path="/dashboard/addCake" element={<AddCake />} />
+
+        <Route exact path="/details/:id" element={<Details />}/>
 
         <Route path="*" element={<Error />} />
 

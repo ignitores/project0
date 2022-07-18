@@ -1,16 +1,18 @@
 import React from 'react'
 import ReactStars from 'react-stars'
 import './card.css'
+import { useNavigate } from 'react-router-dom'
+
 
 const Card = (props) => {
     // console.log(props);
     const ratingChanged = (newRating) => {
         // console.log(newRating)
     }
-
+    const navigate=useNavigate()
     return (
         <>
-            <div className="cake_card">
+            <div className="cake_card" onClick={() => navigate('/details/'+props.id)}>
                 <div className="imgContainer">
                     <img
                         className="cardImg"
