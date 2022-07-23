@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react'
 import { axiosInstance } from '../../config'
 import { ThreeDots } from 'react-loader-spinner'
+import Navbar from '../../components/navbar/Navbar'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Details = () => {
@@ -41,6 +42,7 @@ const Details = () => {
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" /><div className="pd-wrap">
+          <Navbar/>
           <div className="container">
             <div className="heading-section">
               <h2>Cake Details</h2>
