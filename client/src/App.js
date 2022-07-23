@@ -3,10 +3,13 @@ import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import Error from './pages/erro404/error'
 import Dashboard from './pages/dashboard/Dashboard'
+import ContactForm from './pages/ContactForm/ContactForm'
 import AllProducts from './pages/dashboard_allProducts/AllProducts'
 import AddCake from './pages/addCake/AddCake'
 import { Routes, Route } from 'react-router-dom';
 import Details from './pages/Details/Details';
+import "bootstrap/dist/css/bootstrap.min.css";  
+
 
 function App() {
   return (
@@ -28,7 +31,9 @@ function App() {
         <Route exact path="/details/:id" element={<Details />}/>
 
         <Route path="*" element={<Error />} />
-
+        
+        <Route path="/contact" element={<ContactForm/>}/>
+        
       </Routes>
     </>
   );

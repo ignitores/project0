@@ -93,7 +93,7 @@ const Home = () => {
                 <CardSection title="Most Reviewed" dat={value.cakeByReviews.slice(0, 4)} />
                 <CardSection title="All Cakes" dat={value.allCakes} />
                 <Footer />
-
+                
             </>
         )
     }
