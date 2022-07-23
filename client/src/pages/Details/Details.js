@@ -5,42 +5,38 @@ import { useState, useEffect } from 'react'
 import { axiosInstance } from '../../config'
 import { ThreeDots } from 'react-loader-spinner'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-// import p1 from './p1.jpg'
 
-const Details=() => {
-    // const {id}=useParams()
+const Details = () => {
+  const { id } = useParams()
 
-    // const [value, setValue] = useState(null);
-    
+  const [value, setValue] = useState(null);
 
-    // const fetchData = () => {
-    //     axiosInstance.get('/cake/cakeByID/'+id)
-    //     .then((response) => {
-    //         const cakedata=response.data
-    //         setValue(cakedata)
-    //     })
-        
-        
-    // }
 
-    // useEffect(() => {
-    //     fetchData()
-    // }, [])
-    // if (value === null) {
-    //     const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
-    //     return (
-    //         <div style={style}>
-    //             <ThreeDots color="#00BFFF" height={80} width={80} />
-    //         </div>
-    //     )
-    // }
-    // else {  
-    //     //for testing TODO: needed proper styling and designing 
-        return (
-            <>
-            {/* <div> */}
+  const fetchData = () => {
+    axiosInstance.get('/cake/cakeByID/' + id)
+      .then((response) => {
+        const cakedata = response.data
+        setValue(cakedata)
+      })
+
+
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+  if (value === null) {
+    const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
+    return (
+      <div style={style}>
+        <ThreeDots color="#00BFFF" height={80} width={80} />
+      </div>
+    )
+  }
+  else {
+    return (
+      <>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
-        {/*---- Include the above in your HEAD tag --------*/}
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
@@ -51,10 +47,8 @@ const Details=() => {
             </div>
             <div className="row">
               <div className="col-md-6">
-                <div id="slider" className="owl-carousel product-slider">
-                  <div className="item">
-                    {/* <img src='./p1.jpg' /> */}
-                  </div>
+                <img src={value.images[0]} />
+                {/* <div id="slider" className="owl-carousel product-slider">
                   <div className="item">
                     <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
                   </div>
@@ -96,12 +90,12 @@ const Details=() => {
                   <div className="item">
                     <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" />
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="col-md-6">
                 <div className="product-dtl">
                   <div className="product-info">
-                    <div className="product-name">Similar Cakes</div>
+                    <div className="product-name">{value.name}</div>
                     <div className="reviews-counter">
                       <div className="rate">
                         <input type="radio" id="star5" name="rate" defaultValue={5} defaultChecked />
@@ -115,29 +109,39 @@ const Details=() => {
                         <input type="radio" id="star1" name="rate" defaultValue={1} />
                         <label htmlFor="star1" title="text">1 star</label>
                       </div>
-                      <span>3k Reviews</span>
+                      <span>{value.totalNoOfReviews} Reviews</span>
                     </div>
-                    <div className="product-price-discount"><span>39.00/-</span><span className="line-through">29.00/-</span></div>
+                    <div className="product-price-discount"><span>Rs. {Object.values(value.sizeAndPrice)[0]}</span></div>
                   </div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  {Object.keys(value.description).map((key, index) => {
+                    return (
+                      <div key={index}>
+                        <p>
+                          {key}: {value.description[key]}
+                        </p>
+                      </div>
+                    );
+                  })}
+
                   <div className="row">
                     <div className="col-md-6">
-                      <label htmlFor="size">Ponds</label>
+                      <label htmlFor="size">Size</label>
                       <select id="size" name="size" className="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
+                        {Object.keys(value.sizeAndPrice).map((key, index) => {
+                          return (
+                            <option>{key}</option>
+                          );
+                        })}
                       </select>
                     </div>
-                    <div className="col-md-6">
+                    {/* <div className="col-md-6">
                       <label htmlFor="color">Color</label>
                       <select id="color" name="color" className="form-control">
                         <option>Blue</option>
                         <option>Green</option>
                         <option>Red</option>
                       </select>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="product-count">
                     <label htmlFor="size">Quantity</label>
@@ -162,7 +166,15 @@ const Details=() => {
               </ul>
               <div className="tab-content" id="myTabContent">
                 <div className="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+                  {Object.keys(value.description).map((key, index) => {
+                    return (
+                      <div key={index}>
+                        <p>
+                          <small>{key}: {value.description[key]}</small>
+                        </p>
+                      </div>
+                    );
+                  })}
                 </div>
                 <div className="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
                   <div className="review-heading">REVIEWS</div>
@@ -206,16 +218,12 @@ const Details=() => {
                 </div>
               </div>
             </div>
-            <div style={{textAlign: 'center', fontSize: '14px', paddingBottom: '20px'}}>Get free gitft packs for your next 5 order at <a href="#" target="_blank" style={{color: '#ff5e63', fontWeight: 'bold'}}>TEAM IGNITORES</a></div>
+            <div style={{ textAlign: 'center', fontSize: '14px', paddingBottom: '20px' }}>Get free gitft packs for your next 5 order at <a href="#" target="_blank" style={{ color: '#ff5e63', fontWeight: 'bold' }}>TEAM IGNITORES</a></div>
           </div>
         </div>
-        {/* partial */}
-      {/* </div> */}
-                {/* <h1>{value.name}</h1>
-                <h2>{Object.keys(value.description)[0]} : {Object.values(value.description)[0]}</h2>         */}
-            </>
-        )
-    }
-// }
+      </>
+    )
+  }
+}
 
 export default Details
