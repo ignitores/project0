@@ -42,14 +42,14 @@ const Details = () => {
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" /><div className="pd-wrap">
-          <Navbar/>
+          <Navbar />
           <div className="description-container">
             <div className="heading-section">
               <h2>Cake Details</h2>
             </div>
             <div className="row">
-              <div className="col-md-6">
-                <img src={value.images[0]} />
+              <div className="col-md-6 img_container">
+                <img src={value.images[0]} className="cake_img" />
                 {/* <div id="slider" className="owl-carousel product-slider">
                   <div className="item">
                     <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />

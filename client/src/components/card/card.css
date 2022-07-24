@@ -119,7 +119,7 @@
 }
 
 /* media queries */
-@media only screen and (max-width:1540px) {  /* means when width is 800px and greater than 800px */
+@media only screen and (max-width:1540px) {  
     .cake_card{
         width:320px;
     }           
