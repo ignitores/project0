@@ -11,6 +11,8 @@ const Details = () => {
   const { id } = useParams()
 
   const [value, setValue] = useState(null);
+  const [cakeImage, setCakeImage] = useState("");
+  const [images, setImages] = useState([])
 
 
   const fetchData = () => {
@@ -18,6 +20,9 @@ const Details = () => {
       .then((response) => {
         const cakedata = response.data
         setValue(cakedata)
+        setImages(cakedata.images);
+        setCakeImage(cakedata.images[0])
+
       })
 
 
@@ -49,7 +54,25 @@ const Details = () => {
             </div>
             <div className="row">
               <div className="col-md-6 img_container">
-                <img src={value.images[0]} className="cake_img" />
+                {/* <img src={value.images[0]} className="cake_img" /> */}
+                <img src={cakeImage} className="cake_img" />
+                {/* <div className={`${imgPreview.length > 0 ? `image_continer` : 'image_continer_hide'}`}> */}
+                <div className='desc_img_container'>
+
+                  {
+                    images.map((i) => {
+                      return (
+                        <img src={i} alt="." className="desc_cake_img" onClick={() => setCakeImage(i)} />
+                      )
+                    })
+                  }
+
+                  {/* <img src={value.images[0]} alt="." className="up_img" onClick={() => setCakeImage(value.images[0])} /> */}
+
+
+
+
+                </div>
                 {/* <div id="slider" className="owl-carousel product-slider">
                   <div className="item">
                     <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />

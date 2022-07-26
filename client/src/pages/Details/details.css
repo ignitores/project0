@@ -265,6 +265,7 @@
 
 .description-container{
 	/* border: 2px solid red; */
+	margin-top:2rem;
     display: flex;
     flex-direction: column;
 	width: 1200px;
@@ -280,17 +281,30 @@
 	width: 300px;
 	height: 300px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 .cake_img{
+	/* border: 1px solid gray; */
 	margin: 0.5rem;
 	width: 65%;
 	height: 100%;
 	border-radius: 10px;
 	transition:all 0.1s ease-in-out;
 }
-
+.desc_img_container{
+	/* border: 1px solid grey; */
+	padding: 1rem;
+}
+.desc_cake_img{
+	border: 1px solid gray;
+	border-radius: 10px;
+    width:80px;
+    height:80px;
+    margin:0 1rem;
+	cursor: pointer;
+}
 @media only screen and (max-width:500px) {  
     .description-container{
         width:400px;
