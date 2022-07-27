@@ -6,6 +6,7 @@ import { axiosInstance } from '../../config'
 import { ThreeDots } from 'react-loader-spinner'
 import Navbar from '../../components/navbar/Navbar'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import ReactStars from 'react-stars'
 
 const Details = () => {
   const { id } = useParams()
@@ -13,6 +14,9 @@ const Details = () => {
   const [value, setValue] = useState(null);
   const [cakeImage, setCakeImage] = useState("");
   const [images, setImages] = useState([])
+  const [cakePrice, setCakePrice] = useState(0);
+  let [quantity, setQuantity] = useState(1)
+  const [amount, setAmount] = useState(0)
 
 
   const fetchData = () => {
@@ -23,9 +27,41 @@ const Details = () => {
         setImages(cakedata.images);
         setCakeImage(cakedata.images[0])
 
+        // Set initial size and prize of cake
+        let size = document.getElementById('size');
+        let currSize = size?.value;
+        let currPrize = cakedata.sizeAndPrice[currSize]
+        setCakePrice(currPrize);
+
+        // set intitial amount
+        setAmount(currPrize * quantity)
+
       })
+  }
 
+  // function to update size and price of cake on change
+  const sizeChange = () => {
+    let size = document.getElementById('size');
+    let currSize = size?.value;
+    let currPrize = value.sizeAndPrice[currSize]
+    setCakePrice(currPrize);
+    setAmount(currPrize * quantity);
+  }
 
+  // function to increment the quantity and update amount
+  const incrementQuantity = () => {
+    quantity++;
+    setQuantity(quantity);
+    setAmount(cakePrice * quantity);
+  }
+
+  // function to decrement the quantity and update amount
+  const decrementQuantity = () => {
+    if (quantity > 1) {
+      quantity--;
+      setQuantity(quantity);
+      setAmount(cakePrice * quantity);
+    }
   }
 
   useEffect(() => {
@@ -50,7 +86,7 @@ const Details = () => {
           <Navbar />
           <div className="description-container">
             <div className="heading-section">
-              <h2>Cake Details</h2>
+              <h2 className="cake_details_heading">Cake Details</h2>
             </div>
             <div className="row">
               <div className="col-md-6 img_container">
@@ -123,7 +159,7 @@ const Details = () => {
                     <div className="product-name">{value.name}</div>
                     <div className="reviews-counter">
                       <div className="rate">
-                        <input type="radio" id="star5" name="rate" defaultValue={5} defaultChecked />
+                        {/* <input type="radio" id="star5" name="rate" defaultValue={5} defaultChecked />
                         <label htmlFor="star5" title="text">5 stars</label>
                         <input type="radio" id="star4" name="rate" defaultValue={4} defaultChecked />
                         <label htmlFor="star4" title="text">4 stars</label>
@@ -132,11 +168,20 @@ const Details = () => {
                         <input type="radio" id="star2" name="rate" defaultValue={2} />
                         <label htmlFor="star2" title="text">2 stars</label>
                         <input type="radio" id="star1" name="rate" defaultValue={1} />
-                        <label htmlFor="star1" title="text">1 star</label>
+                        <label htmlFor="star1" title="text">1 star</label> */}
+
+                        <ReactStars
+                          count={5}
+                          size={24}
+                          color2={'#ffd700'}
+                          value={value.sumOfReviews / value.totalNoOfReviews}
+                          edit={false}
+                          half={true} />
                       </div>
-                      <span>{value.totalNoOfReviews} Reviews</span>
+                      <span className="review">{value.totalNoOfReviews} Reviews</span>
                     </div>
-                    <div className="product-price-discount"><span>Rs. {Object.values(value.sizeAndPrice)[0]}</span></div>
+                    {/* <div className="product-price-discount"><span>Rs. {Object.values(value.sizeAndPrice)[0]}</span></div> */}
+                    <div className="product-price-discount"><span>₹ {cakePrice}</span></div>
                   </div>
                   {Object.keys(value.description).map((key, index) => {
                     return (
@@ -151,7 +196,7 @@ const Details = () => {
                   <div className="row">
                     <div className="col-md-6">
                       <label htmlFor="size">Size</label>
-                      <select id="size" name="size" className="form-control">
+                      <select id="size" name="size" className="form-control" onChange={sizeChange}>
                         {Object.keys(value.sizeAndPrice).map((key, index) => {
                           return (
                             <option>{key}</option>
@@ -171,9 +216,11 @@ const Details = () => {
                   <div className="product-count">
                     <label htmlFor="size">Quantity</label>
                     <form action="#" className="display-flex">
-                      <div className="qtyminus">-</div>
-                      <input type="text" name="quantity" defaultValue={1} className="qty" />
-                      <div className="qtyplus">+</div>
+                      <div className="qtyminus" onClick={decrementQuantity}>-</div>
+                      <input type="text" name="quantity" value={quantity} className="qty" />
+                      <div className="qtyplus" onClick={incrementQuantity}>+</div>
+                      <span className="amt">Amount : </span>
+                      <span className="cake_amount">₹ {amount}</span>
                     </form>
                     <a href="#" className="round-black-btn">Add to Cart</a>
                   </div>

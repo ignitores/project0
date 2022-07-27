@@ -9,10 +9,10 @@ const Card = (props) => {
     const ratingChanged = (newRating) => {
         // console.log(newRating)
     }
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     return (
         <>
-            <div className="cake_card" onClick={() => navigate('/details/'+props.id)}>
+            <div className="cake_card" onClick={() => navigate('/details/' + props.id)}>
                 <div className="imgContainer">
                     <img
                         className="cardImg"
@@ -32,6 +32,7 @@ const Card = (props) => {
                                 size={24}
                                 color2={'#ffd700'}
                                 value={props.rating}
+                                edit={false}
                                 half={true} />
 
                         </p>

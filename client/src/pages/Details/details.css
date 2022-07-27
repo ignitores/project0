@@ -92,7 +92,9 @@
     color: #a5a5a5;
 }
 .display-flex {
+	/* border: 2px solid blue; */
 	display: flex;
+	align-items: center;
 }
 .align-center {
 	align-items: center;
@@ -101,12 +103,20 @@
 	width: 100%;
 }
 .reviews-counter {
+	/* border: 2px solid red; */
+	display: flex;
+	align-items: center;
     font-size: 13px;
 }
 .reviews-counter span {
 	vertical-align: -2px;
 }
+.review{
+	/* border: 2px solid grey; */
+	margin: auto 0.2rem;
+}
 .rate {
+	/* border: 2px solid brown; */
     float: left;
     padding: 0 10px 0 0;
 }
@@ -124,6 +134,9 @@
     color:#ccc;
 	margin-bottom: 0;
 	line-height: 21px;
+}
+#size{
+	cursor: pointer;
 }
 .rate:not(:checked) > label:before {
     content: '\2605';
@@ -261,11 +274,13 @@
 	text-transform: uppercase;
 	cursor: pointer;
 }
-
+.cake_details_heading{
+	margin:2rem auto;
+}
 
 .description-container{
 	/* border: 2px solid red; */
-	margin-top:2rem;
+	margin-top:0.5rem;
     display: flex;
     flex-direction: column;
 	width: 1200px;
@@ -304,6 +319,17 @@
     height:80px;
     margin:0 1rem;
 	cursor: pointer;
+}
+.amt{
+	margin: auto 0.5rem;
+	font-weight: 500;
+	font-size: 1.2rem;
+}
+.cake_amount{
+	/* border: 2px solid green; */
+	font-weight: 600;
+	font-size: 1.2rem;
+
 }
 @media only screen and (max-width:500px) {  
     .description-container{
