@@ -8,7 +8,8 @@ import AllProducts from './pages/dashboard_allProducts/AllProducts'
 import AddCake from './pages/addCake/AddCake'
 import { Routes, Route } from 'react-router-dom';
 import Details from './pages/Details/Details';
-import "bootstrap/dist/css/bootstrap.min.css";  
+import Register from './pages/Register/Register';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 function App() {
@@ -24,16 +25,18 @@ function App() {
 
         <Route exact path="/dashboard" element={<Dashboard />} />
 
+        <Route exact path="/register" element={<Register />} />
+
         <Route exact path="/dashboard/allProducts" element={<AllProducts />} />
 
         <Route exact path="/dashboard/addCake" element={<AddCake />} />
 
-        <Route exact path="/details/:id" element={<Details />}/>
+        <Route exact path="/details/:id" element={<Details />} />
 
         <Route path="*" element={<Error />} />
-        
-        <Route path="/contact" element={<ContactForm/>}/>
-        
+
+        <Route path="/contact" element={<ContactForm />} />
+
       </Routes>
     </>
   );
