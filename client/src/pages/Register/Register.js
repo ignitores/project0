@@ -1,11 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Register.css'
 
 import logo from './logo.png';
 import cake from './cake.png';
+import { axiosInstance } from '../../config';
 
 
 const Register = () => {
+    const [firstname, setfirstname] = useState("");
+    const [lastname, setlastname] = useState("");
+    const [username, setusername] = useState("");
+    const [email, setemail] = useState("");
+    const [mobnumber, setmobnumber] = useState("");
+
+    const handleRegister = async () => {
+        const dat=JSON.stringify({
+            firstname: firstname,
+            lastname: lastname,
+            username: username,
+            email: email,
+            mobnumber: mobnumber
+        });
+        const conf={
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        const res=await axiosInstance.post('/user/newuser', dat,conf);
+        console.log(res.data);
+        alert("Registration Successful");
+    }
     return (
         <>
             <div className="container">
@@ -18,34 +42,39 @@ const Register = () => {
                     <div className="wrap">
                         <div className="f1">
                             <label>First name</label>
-                            <input type="text" />
+                            <input type="text" value={firstname}
+                                onChange={(e) => setfirstname(e.target.value)} />
                             <span className="focus-input" />
                         </div>
                         <div className="f2">
                             <label>Last name</label>
-                            <input type="text" />
+                            <input type="text" value={lastname}
+                                onChange={(e) => setlastname(e.target.value)} />
                             <span className="focus-input" />
                         </div>
                     </div>
                     <div className="wrap2">
                         <label>Username</label>
-                        <input type="text" />
+                        <input type="text" value={username}
+                            onChange={(e) => setusername(e.target.value)} />
                         <span className="focus-input2" />
                     </div>
                     <div className="wrap2">
                         <label>E-Mail</label>
-                        <input type="email" />
+                        <input type="email" value={email}
+                            onChange={(e) => setemail(e.target.value)} />
                         <span className="focus-input2" />
                     </div>
                     <div className="wrap2">
                         {/* <span class="country-code"></span> */}
                         <label>Mobile Number</label>
-                        <input type="tel" required placeholder='+91123456789' />
+                        <input type="tel" required minLength="10" maxLength="10" value={mobnumber}
+                            onChange={(e) => setmobnumber(e.target.value)} />
                         <span className="focus-input2" />
 
 
                     </div>
-                    <button className="btn">Register</button>
+                    <button className="btn" onClick={() => { handleRegister(); }}>Register</button>
                 </div>
                 {/* image */}
                 <div className="image">

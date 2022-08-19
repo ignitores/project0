@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const config = require('./config');
 const cakeRoutes = require('./routes/cake');
-//const bodyParser = require('body-parser');
+const registerRoutes = require('./routes/user');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -29,6 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/cake', cakeRoutes);
+app.use('/user', registerRoutes);
 
 
 app.listen(PORT, () => {
