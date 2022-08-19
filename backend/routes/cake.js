@@ -64,7 +64,7 @@ router.get('/cakesByFlavoursSortedByReviews/:flavour', cakeByFlavours_sortedByRe
 // get cake by flavours and orders (most to least) -->> http://localhost:8000/cake/cakesByFlavoursSortByOrders/{flavour}
 router.get('/cakesByFlavoursSortByOrders/:flavour', cakeByFlavours_sortByOrders);
 
-//get all cake by particular tags and sorted by price(low to high)-->> http://localhost:8000/cake/cakesByTagsSortedByPrice/{tag}
+//get all cake by particular tags and sorted by price(high to low)-->> http://localhost:8000/cake/cakesByTagsSortedByPrice/{tag}
 router.get('/cakesByTagsSortedByPrice/:tags', cakesByTags_SortedByPrice);
 
 // export default router;

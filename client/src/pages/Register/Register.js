@@ -12,7 +12,7 @@ const Register = () => {
                 <div className="form">
                     <div className="heading">
                         <img src={logo} alt="." className="cake_logo" />
-                        <h1><b>Registration Form</b></h1>
+                        <h1 id="register">Registration Form</h1>
                     </div>
                     {/* form */}
                     <div className="wrap">
@@ -40,8 +40,10 @@ const Register = () => {
                     <div className="wrap2">
                         {/* <span class="country-code"></span> */}
                         <label>Mobile Number</label>
-                        <input type="number" />
+                        <input type="tel" required placeholder='+91123456789' />
                         <span className="focus-input2" />
+
+
                     </div>
                     <button className="btn">Register</button>
                 </div>

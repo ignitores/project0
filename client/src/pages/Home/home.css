@@ -29,3 +29,7 @@ body::-webkit-scrollbar {
     border-radius: 30%;
     color: rgb(38, 142, 228);;
 }
+
+.card_section_container{
+  border: 2px solid red;
+}

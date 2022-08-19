@@ -1,5 +1,6 @@
 .Navbar {
   /* border: 1px solid grey; */
+  opacity : 85%;
   height: 102px;
   display: flex;
   justify-content: space-between;

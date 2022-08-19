@@ -10,6 +10,7 @@ import { Routes, Route } from 'react-router-dom';
 import Details from './pages/Details/Details';
 import Register from './pages/Register/Register';
 import "bootstrap/dist/css/bootstrap.min.css";
+import CategoryPage from './pages/CategoryPage/CategoryPage';
 
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
         <Route exact path="/home" element={<Home />} />
 
         <Route exact path="/about" element={<About />} />
+
+        <Route exact path="/category" element={<CategoryPage />} />
 
         <Route exact path="/dashboard" element={<Dashboard />} />
 

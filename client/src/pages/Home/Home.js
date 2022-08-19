@@ -14,11 +14,13 @@ import { FaArrowCircleUp } from "react-icons/fa";
 
 const Home = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [sort, setSort] = useState(false);
     const [value, setValue] = useState(
         {
             allCakes: null,
             cakesByOrder: null,
-            cakeByReviews: null
+            cakeByReviews: null,
+            sortedByTagsByPrice: null
         }
     );
 
@@ -26,19 +28,24 @@ const Home = () => {
         const req1 = axiosInstance.get("/cake/allcakes");
         const req2 = axiosInstance.get("/cake/cakeByOrder");
         const req3 = axiosInstance.get("/cake/mostReviewed");
+        const req4 = axiosInstance.get("/cake/cakesByTagsSortedByPrice/birthday");
+        // const req5 = axiosInstance.get("/cake/'/cakesByFlavoursSortByOrders/:flavour");
 
-        axios.all([req1, req2, req3]).then(
+        axios.all([req1, req2, req3, req4]).then(
             axios.spread((...response) => {
                 const allCakeData = response[0].data
                 const cakeByOrderData = response[1].data
                 const cakeByReviewData = response[2].data
+
 
                 // set data of cakes
                 setValue(
                     {
                         allCakes: allCakeData,
                         cakeByOrder: cakeByOrderData,
-                        cakeByReviews: cakeByReviewData
+                        cakeByReviews: cakeByReviewData,
+                        sortedByTagsByPrice: cakeByReviewData
+
                     }
                 );
             })
@@ -48,7 +55,7 @@ const Home = () => {
     useEffect(() => {
         fetchData()
     }, [])
-    // console.log(value); 
+    console.log(value);
 
     const scrollToTop = () => {
         document.body.scrollTop = 0;
@@ -69,6 +76,11 @@ const Home = () => {
         }
     };
 
+    const handleSort = () => {
+        // toggle
+        setSort(!sort);
+    }
+
     if (value.allCakes?.length === undefined) {
         const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
         return (
@@ -82,18 +94,21 @@ const Home = () => {
 
             <>
                 <Navbar />
-                <Slider/>
-                <Category />
+                <Slider />
+                <Category data={value} />
                 {
                     isVisible
                     &&
                     <FaArrowCircleUp className="scrollTop" id="scrollTop" onClick={scrollToTop} />
                 }
-                <CardSection title="Popular Cakes" dat={value.cakeByOrder.slice(0, 4)} />
-                <CardSection title="Most Reviewed" dat={value.cakeByReviews.slice(0, 4)} />
-                <CardSection title="All Cakes" dat={value.allCakes} />
+                <div className="card_section_container">
+                    <button onClick={handleSort}>Sort</button>
+                    <CardSection title="Popular Cakes" dat={value.cakeByOrder.slice(0, 4)} />
+                    <CardSection title="Most Reviewed" dat={value.cakeByReviews.slice(0, 4)} />
+                    <CardSection title="All Cakes" dat={value.allCakes} />
+                </div>
                 <Footer />
-                
+
             </>
         )
     }
