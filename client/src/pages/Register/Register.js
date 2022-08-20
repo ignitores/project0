@@ -14,21 +14,23 @@ const Register = () => {
     const [mobnumber, setmobnumber] = useState("");
 
     const handleRegister = async () => {
-        const dat=JSON.stringify({
+        const dat = JSON.stringify({
             firstname: firstname,
             lastname: lastname,
             username: username,
             email: email,
             mobnumber: mobnumber
         });
-        const conf={
+        const conf = {
             headers: {
                 'Content-Type': 'application/json'
             }
         };
-        const res=await axiosInstance.post('/user/newuser', dat,conf);
-        console.log(res.data);
-        alert("Registration Successful");
+        const res = await axiosInstance.post('/user/newuser', dat, conf);
+        if (res.status === 200)
+            alert("Registration Successful");
+        else 
+            alert("Registration Unsuccessful");
     }
     return (
         <>
