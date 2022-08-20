@@ -8,8 +8,10 @@
 
  
 }
-card
-.navbar{
+.category_card{
+  /* background-image: url(https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmlydGhkYXklMjBjYWtlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60); */
+}
+/* .navbar{
   position: fixed;
   background-color: transparent;
   width: 100%;
@@ -25,14 +27,15 @@ card
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.logo{
+} */
+/* .logo{
   font-size: 40px;
   font-weight: 100;
   font-family: 'Great Vibes',sans-serif;
   color: #222222;
   cursor: pointer;
-}
+} */
+
 .inner-width a{
   
   color: #222222;
@@ -40,7 +43,7 @@ card
   margin-left: 35px;
   display: inline-block;
 }
-.inner-width a::after{
+/* .inner-width a::after{
   content: '';
    display: block;
    width: 0;
@@ -61,8 +64,8 @@ card
   letter-spacing: 2px;
   margin-left: 35px;
   display: inline-block;
-}
-.navbar-menu a::after{
+} */
+/* .navbar-menu a::after{
  content: '';
   display: block;
   width: 0;
@@ -77,8 +80,8 @@ card
   position: absolute;
   right: 55px;
   bottom: 30%;
-}
-.social-icons{
+} */
+/* .social-icons{
   list-style: none;
   position: relative;
 }
@@ -88,8 +91,8 @@ card
 .social-icons li i{
   color: #222222;
   font-size: 20px;
-}
-.social-icons li a:hover i{
+} */
+/* .social-icons li a:hover i{
   transform: scale(1.5);
   color: #de6900;
   transition: all .2s ease-in-out;
@@ -103,8 +106,8 @@ card
   top: -210px;
   left: 8px;
   background-color: #de6900;
-}
-.social-icons::after{
+} */
+/* .social-icons::after{
   content: '';
   position: absolute;
   display: block;
@@ -113,7 +116,7 @@ card
   bottom: -210px;
   left: 8px;
   background-color: #de6900;
-}
+} */
 
 
 
@@ -130,10 +133,14 @@ card
 * {
   box-sizing: border-box;
 }
-
-html, body {
-  height: 100%;
+.category_container{
+  /* border: 2px solid green; */
+  margin: 1rem auto;
 }
+
+/* html, body {
+  height: 100%;
+} */
 
 body {
   display: grid;
@@ -142,14 +149,15 @@ body {
 
 .page-content {
   /* border:2px solid red; */
-  display: grid;
+  display: flex;
   grid-gap: 1rem;
   padding: 1rem;
-  max-width: 1024px;
+  /* max-width: 1024px; */
+  width: 70%;
 /* <<<<<<< HEAD */
   margin: 90px auto;
   margin: 0 auto;
-  margin-top: 4rem;
+  margin-top: 1rem;
 /* =======
   margin: 0 auto;
   margin-top: 8rem;
@@ -211,7 +219,7 @@ body {
   transform: translateY(-50%);
   transition: transform calc(var(--d) * 2) var(--e);
 }
-.card:nth-child(1):before {
+/* .card:nth-child(1):before {
   background-image: url(https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmlydGhkYXklMjBjYWtlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60);
 }
 .card:nth-child(2):before {
@@ -222,7 +230,7 @@ body {
 }
 .card:nth-child(4):before {
   background-image: url(https://cdn001.cakecentral.com/gallery/2015/03/900_32615tpgd_an-under-the-sea-themed-graduation-cake-the-students-made-some-awesome-artwork-and-the-cake-is-based-off-of-their-art-they-are-made-of.jpg);
-}
+} */
 
 .content {
   position: relative;
@@ -317,7 +325,7 @@ body {
 
 .body{
   display: flex;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 h1{
   /* margin-top:0rem; */

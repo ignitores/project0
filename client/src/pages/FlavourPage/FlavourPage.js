@@ -2,18 +2,16 @@ import React, { useState, useEffect } from 'react'
 import CardSection from '../../components/cardsection/CardSection'
 import { useParams } from 'react-router'
 import { axiosInstance } from '../../config';
-import './CategoryPage.css'
 import Navbar from '../../components/navbar/Navbar';
 
-const CategoryPage = () => {
-
+const FlavourPage = () => {
     const [cake, setCake] = useState([])
-    const tag = useParams().tag;
-    console.log(tag);
+    const flavour = useParams().flavour;
+    console.log(flavour);
 
     const fetchAllCakes = async () => {
         try {
-            const res = await axiosInstance.get(`cake/cakesByTags/${tag}`)
+            const res = await axiosInstance.get(`cake/cakesByFlavour/${flavour}`)
             setCake(res.data);
 
         } catch (error) {
@@ -33,7 +31,7 @@ const CategoryPage = () => {
                         <h1>No cake found</h1>) :
                     (
                         <div className="categoryPage_container">
-                            <CardSection title={`${tag} cakes`} dat={cake} />
+                            <CardSection title={`${flavour} cakes`} dat={cake} />
                         </div>
                     )
             }
@@ -41,4 +39,4 @@ const CategoryPage = () => {
     )
 }
 
-export default CategoryPage
+export default FlavourPage

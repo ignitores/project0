@@ -1,23 +1,20 @@
 import React from 'react'
-import '../category/category.css'
 
-const CategoryCard = (props) => {
-
-    const categoryClick = (_category) => {
-        _category = _category.toLowerCase();
-        window.open(`/category/${_category}`);
+const FlavourCard = (props) => {
+    const flavourClick = (_flavour) => {
+        _flavour = _flavour.toLowerCase();
+        window.open(`/cake/${_flavour}`);
     }
-
     const backgroundStyle = {
         backgroundImage: `url(${props.bgImg})`,
         backgroundSize: 'cover',
     };
+
     return (
         <>
-
-            <div className="card category_card" onClick={() => categoryClick(props.category)} style={backgroundStyle}>
+            <div className="card" style={backgroundStyle} onClick={() => flavourClick(props.flavour)}>
                 <div className="content">
-                    <h2 className="title">{props.category} <br />Cake</h2>
+                    <h2 className="title">{props.flavour} <br />Cake</h2>
                     <p className="copy">
                         {props.description}
                     </p>
@@ -28,4 +25,4 @@ const CategoryCard = (props) => {
     )
 }
 
-export default CategoryCard
+export default FlavourCard

@@ -11,6 +11,7 @@ import Details from './pages/Details/Details';
 import Register from './pages/Register/Register';
 import "bootstrap/dist/css/bootstrap.min.css";
 import CategoryPage from './pages/CategoryPage/CategoryPage';
+import FlavourPage from './pages/FlavourPage/FlavourPage';
 
 
 function App() {
@@ -24,7 +25,9 @@ function App() {
 
         <Route exact path="/about" element={<About />} />
 
-        <Route exact path="/category" element={<CategoryPage />} />
+        <Route exact path="/category/:tag" element={<CategoryPage />} />
+
+        <Route exact path="/cake/:flavour" element={<FlavourPage />} />
 
         <Route exact path="/dashboard" element={<Dashboard />} />
 

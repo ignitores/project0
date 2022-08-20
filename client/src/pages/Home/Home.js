@@ -11,10 +11,10 @@ import { axiosInstance } from '../../config'
 import axios from 'axios'
 import { ThreeDots } from 'react-loader-spinner'
 import { FaArrowCircleUp } from "react-icons/fa";
+import Flavour from '../../components/flavour/Flavour'
 
 const Home = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const [sort, setSort] = useState(false);
     const [value, setValue] = useState(
         {
             allCakes: null,
@@ -76,11 +76,6 @@ const Home = () => {
         }
     };
 
-    const handleSort = () => {
-        // toggle
-        setSort(!sort);
-    }
-
     if (value.allCakes?.length === undefined) {
         const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
         return (
@@ -96,13 +91,14 @@ const Home = () => {
                 <Navbar />
                 <Slider />
                 <Category data={value} />
+                <Flavour data={value} />
+
                 {
                     isVisible
                     &&
                     <FaArrowCircleUp className="scrollTop" id="scrollTop" onClick={scrollToTop} />
                 }
                 <div className="card_section_container">
-                    <button onClick={handleSort}>Sort</button>
                     <CardSection title="Popular Cakes" dat={value.cakeByOrder.slice(0, 4)} />
                     <CardSection title="Most Reviewed" dat={value.cakeByReviews.slice(0, 4)} />
                     <CardSection title="All Cakes" dat={value.allCakes} />
