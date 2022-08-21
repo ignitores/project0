@@ -82,7 +82,7 @@
 .cardName,.cardDescription{
     text-align: center;
     font-weight: 500;
-    font-size:1.1rem;
+    font-size:1rem;
     font-family: "roboto", sans-serif;
 }
 .cardName{
@@ -92,7 +92,7 @@
 }
 .cardDescription{
     font-weight:400;
-    margin:0.5rem auto;
+    margin:0.2rem auto;
 }
 .cardPrice{
     font-weight: bold;

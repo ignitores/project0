@@ -1,0 +1,26 @@
+.sort_selection_container{
+    /* border: 2px solid green; */
+    margin-top: 8rem;
+}
+.sort_label{
+    /* border: 2px solid red; */
+    width: 9rem;
+    height: auto;
+    margin: auto 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(0, 0, 147);
+    font-family: "roboto", sans-serif;
+    
+}
+.selection_container{
+    width: 12rem;
+    font-weight: bold;
+    height: 2rem;
+}
+.selection_container option {
+    font-family: "roboto", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    padding: 20rem;
+}
