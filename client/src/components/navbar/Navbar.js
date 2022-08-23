@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <div className="Navbar">
 
-      {/* <Link to='/home'> */}
+      
       <div className="nav-logo" onClick={redirectToHome}>
         {/* <img src="./img/re.jpg" className="logo"/> */}
         <div class="logo" href="#">
@@ -26,7 +26,7 @@ const Navbar = () => {
 
       </div>
 
-      {/* </Link> */}
+     
       <div className="search">
         <div className="input-wrapper">
           <div class="fa fa-search"></div> &nbsp;
@@ -38,9 +38,9 @@ const Navbar = () => {
 
       <div className={`nav-items ${isOpen && "open"}`}>
         <a href="/home">Home</a>
-        <a href="/about">About</a>
         <a href="/gallery">Gallery</a>
         <a href="/contact">Contact</a>
+	<a href="/about">About</a>
 
         <a href="/home">
           <FaShoppingCart />
