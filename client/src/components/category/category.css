@@ -8,33 +8,7 @@
 
  
 }
-.category_card{
-  /* background-image: url(https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmlydGhkYXklMjBjYWtlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60); */
-}
-/* .navbar{
-  position: fixed;
-  background-color: transparent;
-  width: 100%;
-  padding: 30px 0;
-  top: 0;
-  z-index: 100;
-  line-height: 20px;
-}
-.inner-width{
-  max-width: 1300px;
-  margin: auto;
-  padding: 0 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-} */
-/* .logo{
-  font-size: 40px;
-  font-weight: 100;
-  font-family: 'Great Vibes',sans-serif;
-  color: #222222;
-  cursor: pointer;
-} */
+
 
 .inner-width a{
   
@@ -43,84 +17,6 @@
   margin-left: 35px;
   display: inline-block;
 }
-/* .inner-width a::after{
-  content: '';
-   display: block;
-   width: 0;
-   height: 1.5px;
-   background-color:  #222222;
-   transition: width .3s;
- }
- .inner-width a:hover::after{
-   width: 90%;
- }
-
-.navbar-menu a{
-  font-size: 13px;
-  font-weight: 500;
-  font-family: 'Raleway',sans-serif;
-  color: #222222;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-left: 35px;
-  display: inline-block;
-} */
-/* .navbar-menu a::after{
- content: '';
-  display: block;
-  width: 0;
-  height: 1.8px;
-  background-color:  #de6900;
-  transition: width .3s;
-}
-.navbar-menu a:hover::after{
-  width: 100%;
-}
-.social-container{
-  position: absolute;
-  right: 55px;
-  bottom: 30%;
-} */
-/* .social-icons{
-  list-style: none;
-  position: relative;
-}
-.social-icons li{
-  margin: 35px 0;
-}
-.social-icons li i{
-  color: #222222;
-  font-size: 20px;
-} */
-/* .social-icons li a:hover i{
-  transform: scale(1.5);
-  color: #de6900;
-  transition: all .2s ease-in-out;
-}
-.social-icons::before{
-  content: '';
-  position: absolute;
-  display: block;
-  width: 1px;
-  height: 190px;
-  top: -210px;
-  left: 8px;
-  background-color: #de6900;
-} */
-/* .social-icons::after{
-  content: '';
-  position: absolute;
-  display: block;
-  width: 1px;
-  height: 190px;
-  bottom: -210px;
-  left: 8px;
-  background-color: #de6900;
-} */
-
-
-
-
 
 @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
 :root {
@@ -136,11 +32,8 @@
 .category_container{
   /* border: 2px solid green; */
   margin: 1rem auto;
-}
 
-/* html, body {
-  height: 100%;
-} */
+}
 
 body {
   display: grid;
@@ -154,16 +47,13 @@ body {
   padding: 1rem;
   /* max-width: 1024px; */
   width: 70%;
-/* <<<<<<< HEAD */
   margin: 90px auto;
   margin: 0 auto;
   margin-top: 1rem;
-/* =======
   margin: 0 auto;
-  margin-top: 8rem;
-
->>>>>>> 9ae77611d080a8ee8f8d9358c3217e87524786a0
-  font-family: var(--font-sans); */
+  /* margin-top: 8rem; */
+  flex-wrap: wrap;
+  font-family: var(--font-sans); 
 }
 @media (min-width: 600px) {
   .page-content {
@@ -177,23 +67,24 @@ body {
 }
 
 .card {
-  /* border: 2px solid green; */
+  border: 2px solid green;
+  flex-basis: 23%;
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
   padding: 1rem;
-  width: 100%;
+  /* width: 100%; */
   text-align: center;
   color: whitesmoke;
   background-color: whitesmoke;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
 }
-@media (min-width: 600px) {
+/* @media (min-width: 600px) {
   .card {
     height: 350px;
   }
-}
+} */
 .card:before {
   content: "";
   position: absolute;
@@ -334,4 +225,54 @@ h1{
 	color: blue;
 	padding: 0% 0% 0% 0%;
 
+}
+
+/* media queries */
+@media only screen and (max-width:950px) { 
+  .page-content{
+    width: 80%;
+  } 
+  .card{
+    /* width: 45%; */
+    max-height: 250px;
+    flex-basis: 48%;
+  }
+  .title{
+    font-size: 1.5rem;
+  }
+  .copy{
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width:750px) {
+  .page-content{
+    width: 90%;
+  } 
+  .card{
+    /* width: 45%; */
+    max-height: 240px;
+    flex-basis: 47%;
+  }
+  .title{
+    font-size: 1.2rem;
+  }
+  .copy{
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width:460px) { 
+  .page-content{
+    width: 90%;
+  }
+  .card{
+    /* width: 45%; */
+    max-height: 240px;
+    flex-basis: 47%;
+  }
+  .title{
+    font-size: 1.2rem;
+  }
+  .copy{
+    font-size: 0.8rem;
+  }
 }
