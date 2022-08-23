@@ -217,14 +217,14 @@ input[type="number"]{
 
 @media(max-width:1250px){
     .container{
-        border : 2px solid rgb(0, 255, 13);
+        /* border : 2px solid rgb(0, 255, 13); */
         width: 90%;
     }
 }
 
 @media(max-width:768px){
     .container{
-        border : 2px solid red;
+        /* border : 2px solid red; */
         position: static;
         transform: translate(0,0);
     }

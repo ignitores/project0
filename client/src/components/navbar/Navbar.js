@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+// import logo from './img/re.jpg';
+import { useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
 
 // import logo from './img/re.jpg';
@@ -8,19 +10,23 @@ import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate()
+
+  const redirectToHome = () => {
+    navigate('/home');
+  }
   return (
     <div className="Navbar">
-      
-      <div className="nav-logo">
-       
-        {/* {<img src="./img/re.jpg" className="logo"/>} */}
-        <div class="logo" href="/home">
-            
+
+      {/* <Link to='/home'> */}
+      <div className="nav-logo" onClick={redirectToHome}>
+        {/* <img src="./img/re.jpg" className="logo"/> */}
+        <div class="logo" href="#">
         </div>
-        
+
       </div>
-      
-     
+
+      {/* </Link> */}
       <div className="search">
         <div className="input-wrapper">
           <div class="fa fa-search"></div> &nbsp;

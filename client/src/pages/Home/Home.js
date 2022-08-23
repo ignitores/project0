@@ -20,7 +20,6 @@ const Home = () => {
             allCakes: null,
             cakesByOrder: null,
             cakeByReviews: null,
-            sortedByTagsByPrice: null
         }
     );
 
@@ -28,15 +27,12 @@ const Home = () => {
         const req1 = axiosInstance.get("/cake/allcakes");
         const req2 = axiosInstance.get("/cake/cakeByOrder");
         const req3 = axiosInstance.get("/cake/mostReviewed");
-        const req4 = axiosInstance.get("/cake/cakesByTagsSortedByPriceAsc/birthday");
-        // const req5 = axiosInstance.get("/cake/'/cakesByFlavoursSortByOrders/:flavour");
 
-        axios.all([req1, req2, req3, req4]).then(
+        axios.all([req1, req2, req3]).then(
             axios.spread((...response) => {
                 const allCakeData = response[0].data
                 const cakeByOrderData = response[1].data
                 const cakeByReviewData = response[2].data
-
 
                 // set data of cakes
                 setValue(
@@ -44,7 +40,6 @@ const Home = () => {
                         allCakes: allCakeData,
                         cakeByOrder: cakeByOrderData,
                         cakeByReviews: cakeByReviewData,
-                        sortedByTagsByPrice: cakeByReviewData
 
                     }
                 );

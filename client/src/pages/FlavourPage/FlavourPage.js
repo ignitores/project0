@@ -69,13 +69,13 @@ const FlavourPage = () => {
     const handleSortCakes = () => {
         let filterValue = document.getElementById('filter_cake_flavour').value;
 
-        if (filterValue == "low_to_high") {
+        if (filterValue === "low_to_high") {
             setCake(value.cakes_low_to_high);
         }
-        else if (filterValue == "high_to_low") {
+        else if (filterValue === "high_to_low") {
             setCake(value.cakes_high_to_low);
         }
-        else if (filterValue == "review") {
+        else if (filterValue === "review") {
             setCake(value.cakes_sort_by_orders);
         }
     }
@@ -90,9 +90,9 @@ const FlavourPage = () => {
                         <div className="categoryPage_container">
                             <div className="sort_selection_container">
 
-                                <span for="cars" className='sort_label'>Sort Cakes By:</span>
+                                <span for="cake" className='sort_label'>Sort Cakes By:</span>
 
-                                <select name="cars" id="filter_cake_flavour" className='selection_container' onClick={handleSortCakes}>
+                                <select name="cake" id="filter_cake_flavour" className='selection_container' onChange={handleSortCakes}>
                                     <option value="">Apply Filter</option>
                                     <option value="low_to_high">Price: Low to High</option>
                                     <option value="high_to_low">Price: High to Low</option>
