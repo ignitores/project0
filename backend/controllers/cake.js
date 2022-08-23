@@ -379,6 +379,28 @@ const cakesByTags_SortedByPriceDesc = async (req, res) => {
 }
 
 
+// get all cake info by particular flavours and reviews (best to worst reviews)
+const cakeByTags_sortedByReviews = async (req, res) => {
+    try {
+        const cakeByTags_sortByReviews = await Cakes.find({ 'tags': req.params.tags });
+
+        if (cakeByTags_sortByReviews == null) {
+            return res.status(404).json({
+                status: 404,
+                message: "Cakes not found"
+            })
+        }
+
+        cakeByTags_sortByReviews.sort((p1, p2) => {
+            return ((p2.sumOfReviews / p2.totalNoOfReviews) - (p1.sumOfReviews / p1.totalNoOfReviews));
+        })
+        res.status(200).json(cakeByTags_sortByReviews);
+
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+}
+
 
 
 module.exports = {
@@ -399,4 +421,5 @@ module.exports = {
     cakeByFlavours_sortByOrders,
     cakesByTags_SortedByPriceAsc,
     cakesByTags_SortedByPriceDesc,
+    cakeByTags_sortedByReviews,
 };

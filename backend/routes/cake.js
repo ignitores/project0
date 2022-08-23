@@ -18,6 +18,7 @@ const {
     cakeByFlavours_sortByOrders,
     cakesByTags_SortedByPriceAsc,
     cakesByTags_SortedByPriceDesc,
+    cakeByTags_sortedByReviews,
 } = require('../controllers/cake');
 
 const router = express.Router();
@@ -85,6 +86,9 @@ router.get('/cakesByTagsSortedByPriceAsc/:tags', cakesByTags_SortedByPriceAsc);
 
 //get all cake by particular tags and sorted by price(high to low)-->> http://localhost:8000/cake/cakesByTagsSortedByPriceDesc/{tag}
 router.get('/cakesByTagsSortedByPriceDesc/:tags', cakesByTags_SortedByPriceDesc);
+
+//get all cake by particular tags and sorted by review(most to worst)-->> http://localhost:8000/cake/cakeByTags_sortedByReviews/{tag}
+router.get('/cakeByTags_sortedByReviews/:tags', cakeByTags_sortedByReviews);
 
 // ********************************************************************************
 
