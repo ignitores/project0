@@ -1,20 +1,28 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import logo from './img/re.jpg';
+import { Link, useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
 //import TextField from "@mui/material/TextField";
 //import { FiSearch} from 'react-icons/fi';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate()
+
+  const redirectToHome = () => {
+    navigate('/home');
+  }
   return (
     <div className="Navbar">
-      <div className="nav-logo">
+      {/* <Link to='/home'> */}
+      <div className="nav-logo" onClick={redirectToHome}>
         {/* <img src="./img/re.jpg" className="logo"/> */}
         <div class="logo" href="#">
 
         </div>
       </div>
+      {/* </Link> */}
       <div className="search">
         <div className="input-wrapper">
           <div class="fa fa-search"></div>

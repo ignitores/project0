@@ -19,6 +19,7 @@
 .Navbar > .nav-logo {
    margin-left: 0.5rem;
    height:100%;
+   cursor: pointer;
   
   }
   
@@ -106,7 +107,7 @@ input {
 
 @media (max-width: 700px) {
   .Navbar{
-    width: 370px;
+    width: 380px;
     height:80px;
   }
   .Navbar > .nav-items {
@@ -195,6 +196,9 @@ input {
   .Navbar>.nav-logo>.logo{
     height: 70px;
     width: 150px;
+  }
+  .search{
+    display: none;
   }
   
 }
