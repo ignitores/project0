@@ -28,7 +28,7 @@ const Home = () => {
         const req1 = axiosInstance.get("/cake/allcakes");
         const req2 = axiosInstance.get("/cake/cakeByOrder");
         const req3 = axiosInstance.get("/cake/mostReviewed");
-        const req4 = axiosInstance.get("/cake/cakesByTagsSortedByPrice/birthday");
+        const req4 = axiosInstance.get("/cake/cakesByTagsSortedByPriceAsc/birthday");
         // const req5 = axiosInstance.get("/cake/'/cakesByFlavoursSortByOrders/:flavour");
 
         axios.all([req1, req2, req3, req4]).then(

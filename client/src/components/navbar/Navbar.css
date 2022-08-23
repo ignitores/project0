@@ -1,7 +1,7 @@
 .Navbar {
   /* border: 1px solid grey; */
   opacity : 85%;
-  height: 102px;
+  height: 75px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,19 +25,24 @@
 
 .Navbar>.nav-logo>.logo{
   background-image:url("./img/re.jpg"); 
-  width:214px;
-  height:102px;
+  width:150px;
+  height:70px;
   background-repeat:nome;
   background-size: cover;
   padding: 1% 1% 1% 1%;
+
 }
+
 .Navbar>.search>.input-wrapper {
+  /* border:2px solid red; */
+  height: 45px;
+  width: 280px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background:whitesmoke;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 15px;
   color: black;
   box-shadow: rgba(50,50,93,0.25) 0px 50px 100px -20px,rgba(0,0,0,0.3) 0px 30px 60px -30px; 
   
@@ -66,12 +71,13 @@ input {
   /* border:2px solid red; */
   color:black;
   font-size: 1.5rem;
+  font-weight: 600;
   text-decoration: none;
-  margin: 15px;
+  margin: 10px;
   position: relative;
   opacity: 0.9;
-  margin-right:5rem;
-  background-color: white;
+  margin-right:6rem;
+  
   
 }
 
