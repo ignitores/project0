@@ -329,28 +329,57 @@ const cakeByFlavours_sortByOrders = async (req, res) => {
     }
 }
 //get all cake by particular tags and sorted by price(low to high) 
-const cakesByTags_SortedByPrice = async (req, res) => {
+const cakesByTags_SortedByPriceAsc = async (req, res) => {
     try {
-        const cakebytags_sortedbyprice = await Cakes.find({ 'tags': req.params.tags });
+        const cakebytags_sortedbypriceAsc = await Cakes.find({ 'tags': req.params.tags });
 
-        if (cakebytags_sortedbyprice.length == 0) {
+        if (cakebytags_sortedbypriceAsc.length == 0) {
             return res.status(404).json({
                 status: 404,
                 message: "cake not found"
             })
         }
 
-        cakebytags_sortedbyprice.sort((p1, p2) => {
-            return (Object.values(p2.sizeAndPrice)[0] - Object.values(p1.sizeAndPrice)[0])
+        cakebytags_sortedbypriceAsc.sort((p1, p2) => {
+            return (Object.values(p1.sizeAndPrice)[0] - Object.values(p2.sizeAndPrice)[0])
         })
 
-        res.status(200).json(cakebytags_sortedbyprice)
+        res.status(200).json(cakebytags_sortedbypriceAsc)
 
     } catch (err) {
 
         return res.status(400).json(err);
     }
 }
+
+
+
+//get all cake by particular tags and sorted by price(high to low)
+const cakesByTags_SortedByPriceDesc = async (req, res) => {
+    try {
+        const cakebytags_sortedbypriceDesc = await Cakes.find({ 'tags': req.params.tags });
+
+        if (cakebytags_sortedbypriceDesc.length == 0) {
+            return res.status(404).json({
+                status: 404,
+                message: "cake not found"
+            })
+        }
+
+        cakebytags_sortedbypriceDesc.sort((p1, p2) => {
+            return (Object.values(p2.sizeAndPrice)[0] - Object.values(p1.sizeAndPrice)[0])
+        })
+
+        res.status(200).json(cakebytags_sortedbypriceDesc)
+
+    } catch (err) {
+
+        return res.status(400).json(err);
+    }
+}
+
+
+
 
 module.exports = {
     newCake,
@@ -368,5 +397,6 @@ module.exports = {
     cakesByTags_SortedByOrders,
     cakeByFlavours_sortedByReviews,
     cakeByFlavours_sortByOrders,
-    cakesByTags_SortedByPrice,
+    cakesByTags_SortedByPriceAsc,
+    cakesByTags_SortedByPriceDesc,
 };
