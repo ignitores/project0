@@ -12,6 +12,7 @@ import Register from './pages/Register/Register';
 import "bootstrap/dist/css/bootstrap.min.css";
 import CategoryPage from './pages/CategoryPage/CategoryPage';
 import FlavourPage from './pages/FlavourPage/FlavourPage';
+import Cart from './pages/Cart/Cart';
 
 
 function App() {
@@ -42,6 +43,8 @@ function App() {
         <Route path="*" element={<Error />} />
 
         <Route path="/contact" element={<ContactForm />} />
+
+        <Route path="/cart" element={<Cart/>} />
 
       </Routes>
     </>
