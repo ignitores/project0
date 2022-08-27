@@ -13,6 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CategoryPage from './pages/CategoryPage/CategoryPage';
 import FlavourPage from './pages/FlavourPage/FlavourPage';
 import Cart from './pages/Cart/Cart';
+import Login from './pages/Login/Login';
 
 
 function App() {
@@ -44,7 +45,9 @@ function App() {
 
         <Route path="/contact" element={<ContactForm />} />
 
-        <Route path="/cart" element={<Cart/>} />
+        <Route path="/cart" element={<Cart />} />
+        
+        <Route path="/login" element={ <Login />} />
 
       </Routes>
     </>
