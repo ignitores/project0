@@ -1,17 +1,23 @@
 .container-slider {
-    max-width: 1000px;
+    max-width: 1500px;
     height: 450px;
     margin: 100px auto 0;
     margin-top:140px;
     margin-bottom:5rem;
     position: relative;
     overflow: hidden;
+    margin-left: 1rem;
+    margin-right: 1rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+   
   }
+  
+   
+  
   @media screen and (max-width: 700px){
     .container-slider {
       margin: 100px 10px 0;
-      width: 370px;
+      width: 80px;
       height: 100px;
     }
   }

@@ -9,6 +9,7 @@
     --overlay-color: rgb(12 12 12 / 63%);
 }
 
+
 [data-theme="light"] {
     --bg-color: #ffffff;
     --primary-color: #ffffff;
@@ -38,6 +39,7 @@ body {
     /* border-left: 10px solid var(--primary-color); */
     /* border-right: 10px solid var(--primary-color); */
 }
+
 
 ul {
     list-style: none;
