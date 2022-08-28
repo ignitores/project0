@@ -36,9 +36,9 @@ export default function Slider() {
 
         const interval = setInterval(() => {
         //   console.log('This will run every second!');
-        
         nextSlide()
-        }, 1000);
+        
+        },1000);
         return () => clearInterval(interval);
       }, []);
 

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Slider.css";
-import leftArrow from "./icons/left-arrow.svg";
-import rightArrow from "./icons/right-arrow.svg";
+import leftArrow from "./icons/Left-arrow.svg";
+import rightArrow from "./icons/Right-arrow.svg";
 
 export default function BtnSlider({ direction, moveSlide }) {
   console.log(direction, moveSlide);
