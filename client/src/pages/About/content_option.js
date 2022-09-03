@@ -64,7 +64,8 @@ const contactConfig = {
   YOUR_EMAIL: 'abc@gmail.com',
   YOUR_FONE: '+91123456789',
   description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra. ',
+    'consectetur adipiscing elit.  consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin et sollicitudin consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula eu nunc et sollicitudin. Cras pulvinar, nisi at imperdiet pharetra. ',
+    YOUR_SERVICE_ID: 'service_id',
   YOUR_SERVICE_ID: 'service_id',
   YOUR_TEMPLATE_ID: 'template_id',
   YOUR_USER_ID: 'user_id',

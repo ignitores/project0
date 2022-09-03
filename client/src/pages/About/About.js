@@ -22,7 +22,8 @@ export default function About() {
       <br/>
       <Row className="sec_sp">
         <Col lg="5" className="mb-5">
-          <h4 className="color_sec py-4">Who are we?</h4>
+          <h3>Who are we?</h3>
+          <hr/>
            
           <p>{contactConfig.description}</p>
         </Col>
