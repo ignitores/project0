@@ -15,8 +15,8 @@ export default function ContactForm() {
         <Col lg="8">
           <h1 className="display-4 mb-4">Contact Us</h1>
           <hr className="t_border my-4 ml-0 text-left" />
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.049842807364!2d75.87772826443619!3d22.689188384400182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcdd42ff946b%3A0x8d99b3b3defeb7bc!2sAnand%20Nagar%2C%20Navlakha%2C%20Indore%2C%20Madhya%20Pradesh%20452001!5e0!3m2!1sen!2sin!4v1661591032194!5m2!1sen!2sin" width="500" height="400" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </Col>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14010.152584811774!2d83.86485632361241!3d28.613629205928046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39be1ec6808cffc1%3A0x48172cc9dd372cef!2sAnnapurna%20I!5e0!3m2!1sen!2sin!4v1662175101624!5m2!1sen!2sin" width="500" height="400"></iframe>
+          </Col>
       </Row>
       <br/>
       <Row className="sec_sp">
