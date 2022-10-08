@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Login.css'
 
 import logo from './logo.png';
-import cake from './cake.png';
+// import cake from './cake.png';
 import { axiosInstance } from '../../config';
 
 
@@ -17,7 +17,7 @@ const Login = () => {
             username: username,
             email: email,
             mobnumber: mobnumber,
-            password: password 
+            password: password
         });
         const conf = {
             headers: {
@@ -27,7 +27,7 @@ const Login = () => {
         const res = await axiosInstance.post('/user/newuser', dat, conf);
         if (res.status === 200)
             alert("Login Successful");
-        else 
+        else
             alert("Login Unsuccessful");
     }
     return (
@@ -60,7 +60,7 @@ const Login = () => {
                         //     onChange={(e) => setmobnumber(e.target.value)} />
                         // <span className="focus-input2" />
                         // </div>
-                        }
+                    }
                     <div className="wrap2">
                         {/* <span class="country-code"></span> */}
                         <label>Password</label>

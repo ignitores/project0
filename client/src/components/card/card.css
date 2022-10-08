@@ -136,14 +136,17 @@
 @media only screen and (max-width:750px) { 
     .cards_div{
         /* background-color: grey; */
-        width: 50%;
+        width: 100%;
     }
     .cake_card{
         flex-basis: 45%;
         max-height: 300px;
     }
     .imgContainer{
-        height: 10%;
+        height:70%;
+    }
+    .lowerContainer{
+        height: 30%;
     }
 }
 @media only screen and (max-width:670px) { 

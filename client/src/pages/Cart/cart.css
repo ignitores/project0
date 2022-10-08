@@ -345,9 +345,9 @@ header {
 /* responsive media queries  */
 
 @media (max-width: 968px) {
-  html {
+  /* html {
     font-size: 30%;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
