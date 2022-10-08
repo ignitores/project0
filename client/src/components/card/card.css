@@ -87,11 +87,14 @@
 }
 .cardName{
     /* border: 2px solid green; */
+    width: auto;
     font-size:1.1rem;
+    align-items: start;
     margin:0.5rem 0.1rem;
 }
 .cardDescription{
     font-weight:400;
+    width: auto;
     margin:0.2rem auto;
 }
 .cardPrice{
@@ -133,7 +136,7 @@
 @media only screen and (max-width:750px) { 
     .cards_div{
         /* background-color: grey; */
-        /* width: 50%; */
+        width: 50%;
     }
     .cake_card{
         flex-basis: 45%;

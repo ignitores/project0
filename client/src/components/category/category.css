@@ -148,6 +148,7 @@ body {
   font-size: 1.125rem;
   font-style: italic;
   line-height: 1.35;
+  width: auto;
 }
 
 .btn {
@@ -249,6 +250,7 @@ h1{
     width: 90%;
   } 
   .card{
+    border: 2px solid red;
     /* width: 45%; */
     max-height: 240px;
     flex-basis: 47%;
