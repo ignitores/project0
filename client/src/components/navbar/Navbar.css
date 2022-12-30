@@ -225,14 +225,28 @@ input {
 
 .data-result{
   background-color: white;
-  margin-top: 230px;
+  margin-top: 17rem;
   width: 300px;
   height: 200px;
   box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
   overflow: hidden;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0.7rem;
+  margin-left: -23rem;
+  font-weight: 550;
+  cursor: pointer;
 }
-
+/* .search_container{
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0.7rem;
+  margin-left: -23rem;
+  margin-top: 17rem;
+  font-weight: 550;
+  cursor: pointer;
+} */
 .data-result::-webkit-scrollbar{
   display: none;
 }

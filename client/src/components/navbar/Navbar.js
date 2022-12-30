@@ -15,71 +15,71 @@ const Navbar = (props) => {
   const redirectToHome = () => {
     navigate('/home');
   }
-  
-  const [filteredData,setfilteredData] = useState([]);
+
+  const [filteredData, setfilteredData] = useState([]);
 
   const handleFilter = (event) => {
     const searchWord = event.target.value
     const newFilter = props.dat.filter((value) => {
       return value.name.toLowerCase().includes(searchWord.toLowerCase());
     });
-    if(searchWord === ""){
+    if (searchWord === "") {
       setfilteredData([]);
-    } else{
-    setfilteredData(newFilter);
+    } else {
+      setfilteredData(newFilter);
     }
   }
 
   return (
     <>
-    <div className="Navbar">
+      <div className="Navbar">
 
-      
-      <div className="nav-logo" onClick={redirectToHome}>
-        {/* <img src="./img/re.jpg" className="logo"/> */}
-        <div class="logo" href="#">
+
+        <div className="nav-logo" onClick={redirectToHome}>
+          {/* <img src="./img/re.jpg" className="logo"/> */}
+          <div class="logo" href="#">
+          </div>
+
         </div>
 
-      </div>
 
-     
-      <div className="search">
-        <div className="input-wrapper">
-          <div class="fa fa-search"></div> &nbsp;
-          <input type="text" placeholder=" Search" onChange={handleFilter}/>
-          <div className="fa fa-times"></div>
+        <div className="search">
+          <div className="input-wrapper">
+            <div class="fa fa-search"></div> &nbsp;
+            <input type="text" placeholder=" Search" onChange={handleFilter} />
+            <div className="fa fa-times"></div>
+          </div>
         </div>
-      </div>
-      {filteredData.length !=0  && (<div className="data-result">
-        {
-            filteredData.slice(0,15).map((cakes)=> {
-                return <p className="data-item" onClick={() => navigate('/details/' + cakes._id)}>{cakes.name}</p>
-              })}
+        {filteredData.length != 0 && (<div className="data-result">
+          {
+            filteredData.slice(0, 15).map((cakes) => {
+              return <p className="data-item" onClick={() => navigate('/details/' + cakes._id)}>{cakes.name}</p>
+            })}
         </div>)}
-      
-      <div className={`nav-items ${isOpen && "open"}`}>
-        <a href="/home">Home</a>
-        <a href="/gallery">Gallery</a>
-        <a href="/contact">Contact</a>
-	     <a href="/about">About</a>
 
-        <a href="/cart">
-          <FaShoppingCart />
-        </a>
-        <a href="/register">
-          <FaUserAlt />
-        </a>
+        <div className={`nav-items ${isOpen && "open"}`}>
+          <a href="/home">Home</a>
+          <a href="/gallery">Gallery</a>
+          <a href="/contact">Contact</a>
+          <a href="/about">About</a>
 
+          <a href="/cart">
+            <FaShoppingCart />
+          </a>
+          <a href="/register">
+            <FaUserAlt />
+          </a>
+
+        </div>
+
+        <div
+          className={`nav-toggle ${isOpen && "open"}`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <div className="bar"></div>
+        </div>
       </div>
-
-      <div
-        className={`nav-toggle ${isOpen && "open"}`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <div className="bar"></div>
-      </div>
-    </div>
-        </>
+    </>
   );
 };
 
