@@ -64,6 +64,21 @@ const Details = () => {
     }
   }
 
+  // checkout function
+  const handleCheckout = async () => {
+    // settting selected amount and quantity for cake and sending to checkout
+    value['Amount'] = amount;
+    value['Quantity'] = quantity;
+
+    const response = await axiosInstance.post('/stripe/create-checkout-session', { value, });
+    // console.log(response);
+    if (response.status !== 200) console.log('Failed');
+
+    else if (response.data.url) {
+      window.location.href = response.data.url;
+    }
+  }
+
   useEffect(() => {
     fetchData()
   }, [])
@@ -102,56 +117,8 @@ const Details = () => {
                       )
                     })
                   }
-
-                  {/* <img src={value.images[0]} alt="." className="up_img" onClick={() => setCakeImage(value.images[0])} /> */}
-
-
-
-
                 </div>
-                {/* <div id="slider" className="owl-carousel product-slider">
-                  <div className="item">
-                    <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                  </div>
-                  <div className="item">
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" />
-                  </div>
-                  <div className="item">
-                    <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                  </div>
-                  <div className="item">
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" />
-                  </div>
-                  <div className="item">
-                    <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                  </div>
-                  <div className="item">
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" />
-                  </div>
-                </div>
-                <div id="thumb" className="owl-carousel product-thumb">
-                  <div className="item">
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" />
-                  </div>
-                  <div className="item">
-                    <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                  </div>
-                  <div className="item">
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" />
-                  </div>
-                  <div className="item">
-                    <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                  </div>
-                  <div className="item">
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" />
-                  </div>
-                  <div className="item">
-                    <img src="https://i.ytimg.com/vi/PJ_zomNMK_s/maxresdefault.jpg" />
-                  </div>
-                  <div className="item">
-                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FrZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" />
-                  </div>
-                </div> */}
+
               </div>
               <div className="col-md-6">
                 <div className="product-dtl">
@@ -159,17 +126,6 @@ const Details = () => {
                     <div className="product-name">{value.name}</div>
                     <div className="reviews-counter">
                       <div className="rate">
-                        {/* <input type="radio" id="star5" name="rate" defaultValue={5} defaultChecked />
-                        <label htmlFor="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" defaultValue={4} defaultChecked />
-                        <label htmlFor="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" defaultValue={3} defaultChecked />
-                        <label htmlFor="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" defaultValue={2} />
-                        <label htmlFor="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" defaultValue={1} />
-                        <label htmlFor="star1" title="text">1 star</label> */}
-
                         <ReactStars
                           count={5}
                           size={24}
@@ -222,7 +178,9 @@ const Details = () => {
                       <span className="amt">Amount : </span>
                       <span className="cake_amount">₹ {amount}</span>
                     </form>
-                    <a href="#" className="round-black-btn">Add to Cart</a>
+                    {/* <a href="#" className="round-black-btn" onClick={handleCheckout}>Add to Cart</a> */}
+                    <button className="round-black-btn" onClick={handleCheckout}>Check out</button>
+                    {/* <PayButton /> */}
                   </div>
                 </div>
               </div>
