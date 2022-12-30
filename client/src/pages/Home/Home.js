@@ -3,7 +3,6 @@ import './home.css'
 import { useState, useEffect } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import CardSection from '../../components/cardsection/CardSection'
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Category from '../../components/category/Category';
 import Footer from '../../components/Footer/Footer';
 import Slider from '../../components/Slider/Slider';
@@ -83,7 +82,7 @@ const Home = () => {
         return (
 
             <>
-                <Navbar />
+                <Navbar dat={value.allCakes}/>
                 <Slider />
                 <Category data={value} />
                 <Flavour data={value} />

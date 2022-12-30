@@ -211,12 +211,50 @@ input {
 
 
 .search-container{
-  position:relative;
+  background-color: pink;
+  position:absolute;
   width: 15%;
+  height: 100px;
   display: flexbox;
   margin: 0 auto;
-  top: -62;
+  top: 50;
   left: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.data-result{
+  background-color: white;
+  margin-top: 230px;
+  width: 300px;
+  height: 200px;
+  box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.data-result::-webkit-scrollbar{
+  display: none;
+}
+
+.data-result .data-item{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.data-item p {
+  margin-left: 10px;
+}
+
+p:hover{
+  background-color: lightgrey;
+}
+
+#clearBtn{
+  cursor: pointer;
 }
 
 input#search-bar{

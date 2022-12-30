@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { axiosInstance } from '../../config'
 import { ThreeDots } from 'react-loader-spinner'
 import Navbar from '../../components/navbar/Navbar'
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import ReactStars from 'react-stars'
 
 const Details = () => {
