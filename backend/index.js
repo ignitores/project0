@@ -19,6 +19,8 @@ let options = {
     autoIndex: false
 };
 
+mongoose.set('strictQuery',true);
+
 mongoose.connect(dbUrl, options, () => {
     console.log('Connected to MongoDB successfully');
 }, (err) => {

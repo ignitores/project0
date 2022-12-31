@@ -9,7 +9,7 @@ import { axiosInstance } from '../../config';
 const Register = () => {
     const [firstname, setfirstname] = useState("");
     const [lastname, setlastname] = useState("");
-    const [username, setusername] = useState("");
+    const [password, setpassword] = useState("");
     const [email, setemail] = useState("");
     const [mobnumber, setmobnumber] = useState("");
 
@@ -17,9 +17,9 @@ const Register = () => {
         const dat = JSON.stringify({
             firstname: firstname,
             lastname: lastname,
-            username: username,
+            mobnumber: mobnumber,
             email: email,
-            mobnumber: mobnumber
+            password: password
         });
         const conf = {
             headers: {
@@ -38,7 +38,7 @@ const Register = () => {
                 <div className="form">
                     <div className="heading">
                         <img src={logo} alt="." className="cake_logo" />
-                        <h1 id="register">Registration Form</h1>
+                        <h1 id="register">Registration</h1>
                     </div>
                     {/* form */}
                     <div className="wrap">
@@ -55,18 +55,7 @@ const Register = () => {
                             <span className="focus-input" />
                         </div>
                     </div>
-                    <div className="wrap2">
-                        <label>Username</label>
-                        <input type="text" value={username}
-                            onChange={(e) => setusername(e.target.value)} />
-                        <span className="focus-input2" />
-                    </div>
-                    <div className="wrap2">
-                        <label>E-Mail</label>
-                        <input type="email" value={email}
-                            onChange={(e) => setemail(e.target.value)} />
-                        <span className="focus-input2" />
-                    </div>
+                    
                     <div className="wrap2">
                         {/* <span class="country-code"></span> */}
                         <label>Mobile Number</label>
@@ -76,6 +65,20 @@ const Register = () => {
 
 
                     </div>
+                    <div className="wrap2">
+                        <label>E-Mail</label>
+                        <input type="email" value={email}
+                            onChange={(e) => setemail(e.target.value)} />
+                        <span className="focus-input2" />
+                    </div>
+
+                    <div className="wrap2">
+                        <label>Password</label>
+                        <input type="password" value={password}
+                            onChange={(e) => setpassword(e.target.value)} />
+                        <span className="focus-input2" />
+                    </div>
+                    
                     <button className="btn" onClick={() => { handleRegister(); }}>Register</button>
                 </div>
                 {/* image */}

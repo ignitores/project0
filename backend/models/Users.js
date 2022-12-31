@@ -10,14 +10,14 @@ let usersSchema = new Schema(
         lastname: {
             type: String
         },
-        username: {
-            type: String
+        mobnumber: {
+            type: Number,
         },
         email: {
             type: String,
         },
-        mobnumber: {
-            type: Number,
+        password: {
+            type: String
         }
     }
 );

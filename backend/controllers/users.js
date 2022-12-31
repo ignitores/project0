@@ -17,11 +17,11 @@ const newuser = async (req, res) => {
 
 const userlogin = async (req, res) => {
     try {
-        let user = await Users.findOne({ username: req.body.username });
+        let user = await Users.findOne({ email: req.body.email });
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
-        if (req.body.mobnumber === user.mobnumber) {
+        if (req.body.password === user.password) {
             res.status(200).json({
                 message: "login successful"
             });
