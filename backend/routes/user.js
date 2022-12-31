@@ -6,7 +6,7 @@ const { newuser, userlogin, updateuser, deleteuser } = require('../controllers/u
 const router = express.Router();
 
 // NEW user -->> http://localhost:8000/user/newuser
-router.post('/newuser',auth, newuser);
+router.post('/newuser', newuser);
 
 router.post('/userlogin', userlogin);
 
