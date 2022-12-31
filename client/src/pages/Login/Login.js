@@ -3,11 +3,14 @@ import './Login.css'
 
 import logo from './logo.png';
 import { axiosInstance } from '../../config';
+import { useNavigate  } from 'react-router-dom';
 
 
 const Login = () => {
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
+
+    const navigate = useNavigate ()
 
     const handleLogin = async () => {
         const dat = JSON.stringify({
@@ -20,8 +23,11 @@ const Login = () => {
             }
         };
         const res = await axiosInstance.post('/user/userlogin', dat, conf);
-        if (res.status === 200)
-            alert("Login Successful");
+        if (res.status === 200){
+            // console.log(res.data.token);
+            navigate("/home");
+
+        }
         else
             alert("Login Unsuccessful");
     }

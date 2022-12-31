@@ -5,6 +5,9 @@ const cakeRoutes = require('./routes/cake');
 const registerRoutes = require('./routes/user');
 const mongoose = require('mongoose');
 const stripe = require('./routes/stripe');
+const dotenv = require('dotenv')
+
+dotenv.config({ path: './.env' });
 
 const app = express();
 const PORT = process.env.PORT || 8000;

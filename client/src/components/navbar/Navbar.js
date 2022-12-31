@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-// import logo from './img/re.jpg';
+
 import { useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
-
-// import logo from './img/re.jpg';
-//import TextField from "@mui/material/TextField";
-//import { FiSearch} from 'react-icons/fi';
 
 const Navbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
