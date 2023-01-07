@@ -1,0 +1,56 @@
+.body{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.success-card
+{
+    display: flexbox;
+    height: 70%;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    box-shadow: 15px 15px 20px rgb(0, 0, 0,0.25),
+    15px -15px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+
+}
+
+.success-tick{
+    height:40%;
+    width: 100%;
+}
+
+#tick{
+    background-image:url("green-tick.png");
+    background-size: 35vh 35vh;
+    background-repeat: no-repeat;
+    height: 35vh;
+    width: 55vh;
+    background-position: center center;
+}
+
+.tnx-number,#tnx-num
+{
+    color: blue;
+    font-size: 1.5rem;
+}
+
+.home-btn
+{
+    margin:30px 0px 30px 0px;
+    border: none;
+    /* text-decoration: none; */
+    background-color: slateblue;
+    border-radius: 30px; 
+    height: 50px;
+    width: 250px;
+    color: white;
+}
+
+.tnx-number{
+    margin-top: 150px;
+}
+
