@@ -29,7 +29,7 @@ const Register = () => {
         const res = await axiosInstance.post('/user/newuser', dat, conf);
         if (res.status === 200)
             alert("Registration Successful");
-        else 
+        else
             alert("Registration Unsuccessful");
     }
     return (
@@ -55,7 +55,7 @@ const Register = () => {
                             <span className="focus-input" />
                         </div>
                     </div>
-                    
+
                     <div className="wrap2">
                         {/* <span class="country-code"></span> */}
                         <label>Mobile Number</label>
@@ -78,7 +78,7 @@ const Register = () => {
                             onChange={(e) => setpassword(e.target.value)} />
                         <span className="focus-input2" />
                     </div>
-                    
+
                     <button className="btn" onClick={() => { handleRegister(); }}>Register</button>
                 </div>
                 {/* image */}

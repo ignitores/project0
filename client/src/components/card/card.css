@@ -69,7 +69,7 @@
    
 }
 .cake_card:hover .lowerContainer{
-    height:50%;    
+    height:45%;    
     opacity: 0.9;
 }
 .cake_card:hover .cardImg{
@@ -151,23 +151,91 @@
 }
 @media only screen and (max-width:670px) { 
     .cake_card{
-        flex-basis: 42%;
-    }
-}
-@media only screen and (max-width:400px) { 
-    .cake_card{
+        /* border: 2px solid red; */
         flex-basis: 45%;
-        height: 280px;
+        height: 300px;
         margin: 0.5rem;
    
     }
     .imgContainer{
-        height: 60%;
+        height: 50%;
     }
     .lowerContainer{
-        height: 35%;
+        /* height: 50%; */
+        height: auto;
     }
-    .cardName,.cardDescription{
-        font-size: 0.9rem;
+    .cardName{
+        font-size: 0.8rem;
+    }
+    .cardPrice{
+        font-size: 0.8rem;
+        margin: 0.4rem 0;
+    }
+    .cardDescription{
+        font-size: 0.6rem;
+    }
+    .reivewAndBtn{
+        /* border: 2px solid green; */
+        margin-bottom: 0.1rem;
+        /* display: block; */
+        /* height: 30px; */
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .reivewAndBtn p{
+       /* border: 2px solid blue; */
+       height: 20px;
+    }
+    .buyBtn{
+        height: 1.6rem;
+        font-size: 0.7rem;
+    }
+}
+@media only screen and (max-width:400px) { 
+    .cake_card{
+        /* border: 2px solid red; */
+        flex-basis: 45%;
+        height: 300px;
+        margin: 0.5rem;
+   
+    }
+    .imgContainer{
+        height: 50%;
+    }
+    .lowerContainer{
+        height: 47%;
+        /* height: auto; */
+    }
+    .cardName{
+        /* border: 2px solid yellow; */
+        font-size: 0.7rem;
+    }
+    .cardPrice{
+        font-size: 0.8rem;
+        margin: 0.4rem 0;
+    }
+    .cardDescription{        
+        /* border: 2px solid blue; */
+        font-size: 0.59rem;
+    }
+    .reivewAndBtn{
+        /* border: 2px solid green; */
+        margin-bottom: 0.1rem;
+        /* display: block; */
+        /* height: 30px; */
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .reivewAndBtn p{
+       /* border: 2px solid blue; */
+       height: 20px;
+    }
+    .buyBtn{
+        height: 1.6rem;
+        font-size: 0.7rem;
     }
 }

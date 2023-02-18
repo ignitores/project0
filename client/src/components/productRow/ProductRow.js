@@ -9,7 +9,6 @@ const ProductRow = (props) => {
     const deleteCake = async (id) => {
         const confirmDelete = window.confirm('Are you sure you want to delete this Cake?');
         if (confirmDelete) {
-            console.log("Deleting cake id: " + id);
             try {
                 await axiosInstance.delete(`/cake/deleteCake/${id}`)
                 alert("Cake Deleted Successfully")

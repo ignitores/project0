@@ -23,7 +23,7 @@ const Card = (props) => {
                 <div className="lowerContainer">
                     <p className="cardName">{props.name}</p>
                     <p className="cardPrice">{`₹ ${props.price}`}</p>
-                    <p className="cardDescription">{props.description}</p>
+                    <p className="cardDescription">{props.description.toString().substring(0, 30) + '....'}</p>
                     <div className="reivewAndBtn">
                         <p>
                             <ReactStars

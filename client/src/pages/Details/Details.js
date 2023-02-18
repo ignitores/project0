@@ -27,10 +27,8 @@ const Details = () => {
         setImages(cakedata.images);
         setCakeImage(cakedata.images[0])
 
-        // Set initial size and prize of cake
-        let size = document.getElementById('size');
-        let currSize = size?.value;
-        let currPrize = cakedata.sizeAndPrice[currSize]
+        // Set initial prize of cake
+        let currPrize = (Object.values(cakedata.sizeAndPrice)[0])
         setCakePrice(currPrize);
 
         // set intitial amount
@@ -82,6 +80,7 @@ const Details = () => {
   useEffect(() => {
     fetchData()
   }, [])
+
   if (value === null) {
     const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
     return (
@@ -152,7 +151,7 @@ const Details = () => {
                   <div className="row">
                     <div className="col-md-6">
                       <label htmlFor="size">Size</label>
-                      <select id="size" name="size" className="form-control" onChange={sizeChange}>
+                      <select id="size" name="size" className="form-control" onChange={sizeChange} >
                         {Object.keys(value.sizeAndPrice).map((key, index) => {
                           return (
                             <option>{key}</option>
@@ -176,6 +175,8 @@ const Details = () => {
                       <input type="text" name="quantity" value={quantity} className="qty" />
                       <div className="qtyplus" onClick={incrementQuantity}>+</div>
                       <span className="amt">Amount : </span>
+
+
                       <span className="cake_amount">₹ {amount}</span>
                     </form>
                     {/* <a href="#" className="round-black-btn" onClick={handleCheckout}>Add to Cart</a> */}

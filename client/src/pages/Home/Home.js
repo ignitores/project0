@@ -49,7 +49,7 @@ const Home = () => {
     useEffect(() => {
         fetchData()
     }, [])
-    console.log(value);
+    // console.log(value);
 
     const scrollToTop = () => {
         document.body.scrollTop = 0;
@@ -82,7 +82,7 @@ const Home = () => {
         return (
 
             <>
-                <Navbar dat={value.allCakes}/>
+                <Navbar dat={value.allCakes} />
                 <Slider />
                 <Category data={value} />
                 <Flavour data={value} />
